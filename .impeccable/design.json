@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T16:18:30Z",
+  "title": "Design System: Antigravity SEO Telemetry Workstation",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Deep Obsidian",
+        "canonical": "#090d16",
+        "tonalRamp": ["#04060a", "#090d16", "#0f172a", "#152136", "#1e293b", "#334155", "#64748b", "#cbd5e1"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface Slate",
+        "canonical": "#0f172a",
+        "tonalRamp": ["#080c16", "#0f172a", "#1a2333", "#23334d", "#334155", "#475569", "#64748b", "#f8fafc"]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Navy",
+        "canonical": "#152136",
+        "tonalRamp": ["#0b1120", "#152136", "#1c2c48", "#23334d", "#2d4163", "#475569", "#94a3b8", "#f1f5f9"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#64748b", "#94a3b8", "#cbd5e1", "#e2e8f0", "#f1f5f9", "#f8fafc", "#ffffff", "#ffffff"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Telemetry Indigo",
+        "canonical": "#818cf8",
+        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#e0e7ff"]
+      },
+      "accent-btn": {
+        "role": "primary",
+        "displayName": "Action Indigo",
+        "canonical": "#4f46e5",
+        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#e0e7ff"]
+      },
+      "coral": {
+        "role": "tertiary",
+        "displayName": "Critical Coral",
+        "canonical": "#f87171",
+        "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fee2e2"]
+      },
+      "amber": {
+        "role": "tertiary",
+        "displayName": "Warning Amber",
+        "canonical": "#fbbf24",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#d97706", "#f59e0b", "#fbbf24", "#fef3c7"]
+      },
+      "emerald": {
+        "role": "secondary",
+        "displayName": "Passing Emerald",
+        "canonical": "#34d399",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#d1fae5"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Hero Score",
+        "purpose": "Hero site health score (46/100) only."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Strategic Risk Dossier and Roadmap section titles."
+      },
+      "title": {
+        "displayName": "Component Title",
+        "purpose": "Threat card headers, drawer titles, deep-dive section labels."
+      },
+      "body": {
+        "displayName": "Body & Diagnostics",
+        "purpose": "Triage table cells, descriptive audit findings, recommendations."
+      },
+      "label": {
+        "displayName": "Label & Badges",
+        "purpose": "KPI status labels, severity badges, and table column headers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "subtle-elevation",
+        "value": "0 2px 4px rgba(0, 0, 0, 0.2)",
+        "purpose": "Active tab pills and primary action buttons."
+      },
+      {
+        "name": "card-hover-ambient",
+        "value": "0 4px 16px rgba(0, 0, 0, 0.15)",
+        "purpose": "Hover elevation on telemetry channel cards."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Color and transform transitions for tabs and buttons."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "960px" },
+      { "name": "lg", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "View Switcher Tab",
+      "kind": "nav",
+      "refersTo": "button-tab-active",
+      "description": "Segmented toggle pill switching between Executive Briefing and Diagnostic Workstation.",
+      "html": "<div class=\"ds-view-switcher\"><button class=\"ds-tab-btn ds-active\">Executive Briefing</button><button class=\"ds-tab-btn\">Diagnostic Workstation</button></div>",
+      "css": ".ds-view-switcher { display: inline-flex; background: #090d16; border: 1px solid #23334d; border-radius: 30px; padding: 3px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-tab-btn { background: transparent; border: none; padding: 6px 18px; border-radius: 24px; font-size: 0.85rem; font-weight: 600; color: #94a3b8; cursor: pointer; transition: all 0.2s; } .ds-tab-btn.ds-active { background: #4f46e5; color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.2); } .ds-tab-btn:hover:not(.ds-active) { color: #f8fafc; }"
+    },
+    {
+      "name": "Primary Action Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Interactive action button for PDF export or view filtering.",
+      "html": "<button class=\"ds-btn-action\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 6 2 18 2 18 9\"/><path d=\"M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2\"/><rect x=\"6\" y=\"14\" width=\"12\" height=\"8\"/></svg> Print / PDF</button>",
+      "css": ".ds-btn-action { background: #0f172a; border: 1px solid #23334d; color: #f8fafc; padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.2s; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-btn-action:hover { border-color: #818cf8; color: #f8fafc; }"
+    },
+    {
+      "name": "Remediation Copy Button",
+      "kind": "button",
+      "refersTo": "button-copy",
+      "description": "Compact one-click clipboard trigger inside remediation code terminals.",
+      "html": "<button class=\"ds-btn-copy\"><svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"/><path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"/></svg> Copy Fix</button>",
+      "css": ".ds-btn-copy { background: #4f46e5; color: #ffffff; border: none; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: opacity 0.2s; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-btn-copy:hover { opacity: 0.9; }"
+    },
+    {
+      "name": "Critical Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-critical",
+      "description": "High-visibility critical severity pill for severe blockers and failing metrics.",
+      "html": "<span class=\"ds-badge ds-badge-critical\">CRITICAL</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-badge-critical { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }"
+    },
+    {
+      "name": "Warning Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-warning",
+      "description": "Medium-visibility amber severity pill for non-blocking audit warnings.",
+      "html": "<span class=\"ds-badge ds-badge-warning\">WARNING</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }"
+    },
+    {
+      "name": "Passing Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-pass",
+      "description": "Green compliance pill for validated audits and passing checks.",
+      "html": "<span class=\"ds-badge ds-badge-pass\">PASS</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-badge-pass { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }"
+    },
+    {
+      "name": "KPI Metric Card",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Telemetry counter card highlighting issue tallies with tabular numeral alignment.",
+      "html": "<div class=\"ds-kpi-card\"><div class=\"ds-kpi-num ds-kpi-crit\">9</div><div class=\"ds-kpi-lbl\">Critical Blockers</div></div>",
+      "css": ".ds-kpi-card { background: #152136; border: 1px solid #23334d; border-radius: 6px; padding: 14px 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; } .ds-kpi-num { font-size: 1.8rem; font-weight: 700; line-height: 1.2; font-variant-numeric: tabular-nums; } .ds-kpi-crit { color: #f87171; } .ds-kpi-lbl { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }"
+    },
+    {
+      "name": "Telemetry Channel Progress Card",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Category status channel module with progress bar track.",
+      "html": "<div class=\"ds-channel-card\"><div class=\"ds-channel-header\"><span class=\"ds-channel-name\">Security Headers</span><span class=\"ds-channel-score ds-crit\">0%</span></div><div class=\"ds-channel-track\"><div class=\"ds-channel-fill ds-bg-crit\" style=\"width: 0%;\"></div></div><div class=\"ds-channel-desc\">Missing HSTS, CSP, X-Frame-Options</div></div>",
+      "css": ".ds-channel-card { background: #0f172a; border: 1px solid #23334d; border-radius: 6px; padding: 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; } .ds-channel-card:hover { transform: translateY(-2px); border-color: #818cf8; box-shadow: 0 4px 16px rgba(0,0,0,0.15); } .ds-channel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; } .ds-channel-name { font-size: 0.9rem; font-weight: 600; color: #f8fafc; } .ds-channel-score { font-size: 0.95rem; font-weight: 700; } .ds-channel-score.ds-crit { color: #f87171; } .ds-channel-track { height: 6px; background: #23334d; border-radius: 3px; overflow: hidden; margin-bottom: 8px; } .ds-channel-fill { height: 100%; border-radius: 3px; } .ds-bg-crit { background: #f87171; } .ds-channel-desc { font-size: 0.75rem; color: #94a3b8; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Telemetry Workstation",
+    "overview": "The Antigravity SEO design system is built to command authority at both ends of the technical spectrum. It rejects the generic SaaS pattern of nested, decorative cards and endless accordion folders that force users to click through 14 siloed categories to understand site health. Instead, it fuses an executive-level strategic risk dossier with a live, actionable technical triage terminal into a single, high-craft, portable document.\n\nRooted in deep obsidian glass and precision instrumentation, the visual grammar draws from aerospace flight telemetry, high-frequency trading terminals, and security audit dashboards. Every data point is immediate and purposeful: leaders get immediate clarity on macro health score, industry benchmarks, and top business threats in under ten seconds, while engineering leads can instantly filter critical blockers, inspect diagnostic evidence, and copy drop-in configuration patches directly into production.\n\nThe system is completely self-contained with zero CDN calls or third-party web font dependencies, delivering instant rendering and flawless offline durability whether viewed via file://, emailed as a deliverable, or printed to PDF.",
+    "keyCharacteristics": [
+      "Dual-Lens Architectural Symmetry: Simultaneous high-altitude executive briefing and granular diagnostic triage.",
+      "Instrument-Grade Telemetry: Calibrated semantic status channels (Coral, Amber, Emerald, Indigo) over obsidian slate.",
+      "Data-Dense Yet Legible: Tabular numeric alignments, monospace code terminals, and razor 1px borders avoiding visual fatigue.",
+      "Zero-Dependency Portability: Built entirely on native system fonts, inline vector SVGs, and pure vanilla CSS custom properties."
+    ],
+    "rules": [
+      {
+        "name": "The Semantic Status Invariant",
+        "body": "Coral, Amber, and Emerald are strictly reserved for operational diagnostic states (Critical, Warning, Pass). No decorative element, chart element, or layout frame may use these hues unless reporting state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ambient Contrast Rule",
+        "body": "Background and card surfaces must never rely on blur filters alone; a crisp 1px border (var(--card-border)) is mandatory to preserve spatial boundaries under varied monitor calibrations.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Alignment Rule",
+        "body": "All numerical readouts, scores, and issue counters must specify font-variant-numeric: tabular-nums to eliminate jitter and misalignment during sorting or tab transitions.",
+        "section": "typography"
+      },
+      {
+        "name": "The Monospace Diagnostic Rule",
+        "body": "Any HTTP header, Schema.org type, DNS directive, canonical URL, or code patch must be rendered in var(--font-mono) with explicit line-height and syntax demarcation.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sticky Command Horizon",
+        "body": "The top navigation header remains sticky (position: sticky; top: 0; z-index: 50) at all times, providing persistent access to the view switcher, audit timestamp, and export triggers regardless of scroll depth.",
+        "section": "layout"
+      },
+      {
+        "name": "The No-Reflow Transition Rule",
+        "body": "Tab transitions, drawer expansions, and filter operations must never animate layout dimensions (width, height) dynamically to avoid layout thrashing; transitions are strictly limited to opacity, transform, and background-color.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ghost Border Fallback",
+        "body": "Surfaces are never defined by drop shadows alone; every surface card possesses an explicit 1px border (var(--card-border)) to ensure separation on high-brightness or low-contrast displays.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Neutral Shadow Rule",
+        "body": "Shadows must always be neutral black/slate alphas (rgba(0, 0, 0, ...)); colored halo glows or neon spread shadows are strictly prohibited.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve 100% offline portability: all SVG icons, CSS variables, and scripts must remain inlined with zero external web requests.",
+      "Do maintain WCAG AA contrast for all text elements in both dark and light modes (minimum 4.5:1 for normal text, 3:1 for large text and UI components).",
+      "Do use font-variant-numeric: tabular-nums for all telemetry counters, table numbers, and score indicators.",
+      "Do provide copy-to-clipboard functionality on all code snippets, schema markups, and configuration directives.",
+      "Do hide navigation chrome and expand all code drawers automatically when printing or exporting to PDF via @media print."
+    ],
+    "donts": [
+      "Don't animate layout properties (width, height, padding, margin) during tab switches or accordion interactions; use transform and opacity only.",
+      "Don't use colored neon halo glows or saturated drop shadows (box-shadow: 0 0 12px var(--accent)).",
+      "Don't rely on external CDN scripts, font stylesheets (Google Fonts), or external asset URLs.",
+      "Don't rely on color alone to convey status; always pair color with text badges (CRITICAL, WARNING, PASS) and numeric metrics.",
+      "Don't introduce horizontal page-level scrollbars; ensure tables and code snippets scroll internally within their own overflow containers."
+    ]
+  }
+}

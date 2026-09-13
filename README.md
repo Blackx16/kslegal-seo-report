@@ -35,12 +35,14 @@
 
 ## Repository Deliverables
 
-1. **[`index.html`](index.html)**: Interactive visual HTML dashboard showing category scores, issue trees, and environment signals.
-2. **[`KSLEGAL-FULL-AUDIT-REPORT.md`](KSLEGAL-FULL-AUDIT-REPORT.md)**: Exhaustive 20KB audit analyzing crawlability, YMYL E-E-A-T, BCI regulatory compliance, security vulnerabilities, and on-page defects across all practice areas.
-3. **[`KSLEGAL-ACTION-PLAN.md`](KSLEGAL-ACTION-PLAN.md)**: 90-day prioritized implementation roadmap (Phase 1 Quick Wins to Phase 4 Authority & Citability).
-4. **[`KSLEGAL-LEGALSERVICE-SCHEMA.json`](KSLEGAL-LEGALSERVICE-SCHEMA.json)**: Production-ready Schema.org JSON-LD structured data with dual `@type: ["LegalService", "Attorney"]`, Nariman Point and BKC geo-coordinates, founder `Sonam Chandwani`, and 8-service catalog.
-5. **[`KSLEGAL-LLMS.txt`](KSLEGAL-LLMS.txt)**: Tailored `/llms.txt` file for discoverability in **ChatGPT Search, Perplexity AI, Claude, and Google AI Overviews**.
-6. **[`audit-kslegal.json`](audit-kslegal.json)**: Machine-readable raw audit diagnostics across 14 categories.
+1. **[`index.html`](index.html)**: Interactive Dual-Lens Telemetry Workstation featuring an Executive Strategic Risk Dossier and an engineering Diagnostic Workstation with real-time issue search, severity filters, and copy-paste remediation drawers.
+2. **[`DESIGN.md`](DESIGN.md)**: Design system specification documenting the "Telemetry Workstation" visual grammar, tokens, and components.
+3. **[`PRODUCT.md`](PRODUCT.md)**: Product specification defining the dual-lens user hierarchy, core positioning, and constraints.
+4. **[`KSLEGAL-FULL-AUDIT-REPORT.md`](KSLEGAL-FULL-AUDIT-REPORT.md)**: Exhaustive 20KB audit analyzing crawlability, YMYL E-E-A-T, BCI regulatory compliance, security vulnerabilities, and on-page defects across all practice areas.
+5. **[`KSLEGAL-ACTION-PLAN.md`](KSLEGAL-ACTION-PLAN.md)**: 90-day prioritized implementation roadmap (Phase 1 Quick Wins to Phase 4 Authority & Citability).
+6. **[`KSLEGAL-LEGALSERVICE-SCHEMA.json`](KSLEGAL-LEGALSERVICE-SCHEMA.json)**: Production-ready Schema.org JSON-LD structured data with dual `@type: ["LegalService", "Attorney"]`, Nariman Point and BKC geo-coordinates, founder `Sonam Chandwani`, and 8-service catalog.
+7. **[`KSLEGAL-LLMS.txt`](KSLEGAL-LLMS.txt)**: Tailored `/llms.txt` file for discoverability in **ChatGPT Search, Perplexity AI, Claude, and Google AI Overviews**.
+8. **[`audit-kslegal.json`](audit-kslegal.json)**: Machine-readable raw audit diagnostics across 14 categories.
 
 ---
 

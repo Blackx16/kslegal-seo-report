@@ -1,0 +1,7 @@
+{
+  "name": "comp-1-triage",
+  "prompt": "High-fidelity desktop web application UI screenshot of an SEO Audit Report and Diagnostic Workstation. Top header bar with view switcher, score telemetry bar with circular health arc gauge (46 Grade: F) and stat cards (2 Critical, 4 Warnings, 14 Passed), and a Cross-Category Issue Triage Matrix with live search, severity filters, and expandable .htaccess remediation code drawer.",
+  "viewport": "1920x1080",
+  "surface": "seo-report-kslegal.html",
+  "approved": true
+}

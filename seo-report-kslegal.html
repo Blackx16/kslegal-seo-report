@@ -1,783 +1,1842 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SEO Report — www.kslegal.co.in</title>
+<title>SEO Telemetry & Executive Audit — www.kslegal.co.in</title>
 <style>
 :root {
-    --bg: #0f172a;
-    --surface: #1e293b;
-    --card: #1e293b;
-    --card-border: #334155;
-    --text: #f1f5f9;
+    --bg: #090d16;
+    --surface: #0f172a;
+    --card: #152136;
+    --card-hover: #1c2c48;
+    --card-border: #23334d;
+    --border-subtle: #2d4163;
+    --text: #f8fafc;
     --text-muted: #94a3b8;
-    --accent: #6366f1;
-    --accent-glow: rgba(99, 102, 241, 0.3);
-    --green: #22c55e;
-    --yellow: #eab308;
-    --red: #ef4444;
-    --orange: #f97316;
+    --text-dim: #94a3b8;
+    --accent: #818cf8;
+    --accent-btn: #4f46e5;
+    --coral: #f87171;
+    --coral-bg: rgba(239, 68, 68, 0.15);
+    --coral-border: rgba(239, 68, 68, 0.35);
+    --amber: #fbbf24;
+    --amber-bg: rgba(245, 158, 11, 0.15);
+    --amber-border: rgba(245, 158, 11, 0.35);
+    --emerald: #34d399;
+    --emerald-bg: rgba(16, 185, 129, 0.15);
+    --emerald-border: rgba(16, 185, 129, 0.35);
+    --code-bg: #0b1120;
+    --code-border: #23334d;
     --radius: 12px;
+    --radius-sm: 6px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
+
 [data-theme="light"] {
     --bg: #f8fafc;
     --surface: #ffffff;
     --card: #ffffff;
-    --card-border: #e2e8f0;
-    --text: #1e293b;
-    --text-muted: #64748b;
-    --accent-glow: rgba(99, 102, 241, 0.15);
+    --card-hover: #f1f5f9;
+    --card-border: #cbd5e1;
+    --border-subtle: #94a3b8;
+    --text: #0f172a;
+    --text-muted: #334155;
+    --text-dim: #475569;
+    --accent: #4338ca;
+    --accent-btn: #4338ca;
+    --coral: #b91c1c;
+    --coral-bg: rgba(239, 68, 68, 0.1);
+    --coral-border: rgba(185, 28, 28, 0.3);
+    --amber: #92400e;
+    --amber-bg: rgba(245, 158, 11, 0.1);
+    --amber-border: rgba(146, 64, 14, 0.3);
+    --emerald: #065f46;
+    --emerald-bg: rgba(16, 185, 129, 0.1);
+    --emerald-border: rgba(6, 95, 70, 0.3);
+    --code-bg: #f1f5f9;
+    --code-border: #cbd5e1;
 }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+button, input, select, textarea {
+    font-family: inherit;
+    color: inherit;
+}
+
+::selection {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-subtle);
+}
+
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-sans);
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    line-height: 1.5;
     min-height: 100vh;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
 }
-.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
 
-/* Header */
-.header {
-    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
-    padding: 48px 0 60px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
-.header::before {
-    content: '';
+
+/* Top Navigation Bar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 12px 0;
+}
+[data-theme="light"] .navbar {
+    background: rgba(255, 255, 255, 0.85);
+}
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.brand-badge {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.audit-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Tab Switcher Pills */
+.view-switcher {
+    display: inline-flex;
+    background: var(--bg);
+    border: 1px solid var(--card-border);
+    border-radius: 30px;
+    padding: 3px;
+}
+.view-tab {
+    background: transparent;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.view-tab.active {
+    background: var(--accent-btn);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.view-tab:hover:not(.active) {
+    color: var(--text);
+}
+
+/* Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-icon {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-icon:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+.btn-action {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-action:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* Score Hero Header */
+.hero-scorecard {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin: 24px 0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: center;
+}
+.gauge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.score-gauge {
+    position: relative;
+    width: 170px;
+    height: 170px;
+}
+.score-gauge svg {
+    width: 100%;
+    height: 100%;
+}
+.gauge-center {
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
-.header h1 { font-size: 2rem; font-weight: 700; color: white; position: relative; }
-.header .domain { font-size: 1.1rem; color: #a5b4fc; margin-top: 8px; position: relative; }
-.header .timestamp { font-size: 0.85rem; color: #818cf8; margin-top: 4px; position: relative; }
-
-/* Theme Toggle */
-.theme-toggle {
-    position: fixed; top: 16px; right: 16px; z-index: 100;
-    background: var(--surface); border: 1px solid var(--card-border);
-    border-radius: 50%; width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 1.2rem; transition: all 0.3s;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.theme-toggle:hover { transform: scale(1.1); }
-
-/* Overall Score */
-.score-hero {
-    display: flex; justify-content: center; align-items: center;
-    gap: 48px; padding: 40px 0; flex-wrap: wrap;
-}
-.score-gauge { position: relative; width: 180px; height: 180px; }
-.score-gauge svg { width: 100%; height: 100%; }
-.score-gauge .gauge-value {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
-.score-gauge .gauge-number { font-size: 3rem; font-weight: 800; color: #dc2626; }
-.score-gauge .gauge-grade { font-size: 1rem; color: var(--text-muted); }
-.score-stats { display: flex; gap: 24px; }
-.stat-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: var(--radius); padding: 20px 28px; text-align: center;
-    min-width: 100px;
+.gauge-score {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #ef4444;
 }
-.stat-value { font-size: 2rem; font-weight: 700; }
-.stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-.stat-critical .stat-value { color: var(--red); }
-.stat-warning .stat-value { color: var(--yellow); }
-.stat-pass .stat-value { color: var(--green); }
+.gauge-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.benchmark-pill {
+    display: inline-block;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+}
 
-/* Category Cards Grid */
-.categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 32px 0; }
-.category-card {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: var(--radius); padding: 20px; text-align: center;
-    cursor: pointer; transition: all 0.3s;
-    position: relative;
+/* Score Projection & KPIs */
+.hero-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-.category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px var(--accent-glow); border-color: var(--accent); }
-.category-card .ring { width: 70px; height: 70px; margin: 0 auto 8px; }
-.category-card .ring-label {
-    position: absolute; top: 52px; left: 50%; transform: translate(-50%, -50%);
-    font-size: 1.1rem; font-weight: 700;
+.projection-box {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 }
-.ring-progress { transition: stroke-dasharray 1s ease; }
-.category-icon { font-size: 1.3rem; margin: 4px 0; }
-.category-name { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
-
-/* Sections */
-.section {
-    background: var(--card); border: 1px solid var(--card-border);
-    border-radius: var(--radius); margin: 24px 0; overflow: hidden;
+.projection-title {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.section-header {
-    padding: 20px 24px; cursor: pointer; display: flex;
-    align-items: center; justify-content: space-between;
-    transition: background 0.2s;
+.projection-val {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--emerald);
 }
-.section-header:hover { background: rgba(99,102,241,0.05); }
-.section-header h2 { font-size: 1.15rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-.section-header .chevron { transition: transform 0.3s; font-size: 1.2rem; color: var(--text-muted); }
-.section-header .chevron.open { transform: rotate(180deg); }
-.section-body { padding: 0 24px 24px; display: none; }
-.section-body.open { display: block; animation: fadeIn 0.3s; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Tables */
-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
-th { text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--card-border); color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-td { padding: 10px 12px; border-bottom: 1px solid var(--card-border); vertical-align: top; }
-tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(99,102,241,0.03); }
-.mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 0.85rem; }
-.link-url { word-break: break-all; max-width: 400px; color: var(--accent); }
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.kpi-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+}
+.kpi-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.kpi-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+.kpi-crit { color: var(--coral); }
+.kpi-warn { color: var(--amber); }
+.kpi-pass { color: var(--emerald); }
+.kpi-total { color: var(--accent); }
 
 /* Badges */
 .badge {
-    display: inline-block; padding: 2px 10px; border-radius: 100px;
-    font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
-.badge.critical { background: rgba(239,68,68,0.15); color: var(--red); }
-.badge.warning { background: rgba(234,179,8,0.15); color: var(--yellow); }
-.badge.pass { background: rgba(34,197,94,0.15); color: var(--green); }
-.badge.info { background: rgba(99,102,241,0.15); color: var(--accent); }
+.badge.critical { background: var(--coral-bg); color: var(--coral); border: 1px solid var(--coral-border); }
+.badge.warning { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.badge.pass { background: var(--emerald-bg); color: var(--emerald); border: 1px solid var(--emerald-border); }
+.badge.info { background: rgba(99, 102, 241, 0.12); color: var(--accent); border: 1px solid rgba(99, 102, 241, 0.25); }
 
-/* Issues */
-.issue-item {
-    padding: 12px 16px; border-radius: 8px; margin: 6px 0;
-    font-size: 0.9rem; display: flex; align-items: flex-start; gap: 10px;
+/* Strategic Risk Dossier */
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.issue-item.critical { background: rgba(239,68,68,0.08); border-left: 3px solid var(--red); }
-.issue-item.warning { background: rgba(234,179,8,0.08); border-left: 3px solid var(--yellow); }
-.issue-item.info { background: rgba(99,102,241,0.08); border-left: 3px solid var(--accent); }
-.issue-badge { flex-shrink: 0; }
-
-/* Bar Chart */
-.bar-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
-.bar-label { width: 150px; font-size: 0.85rem; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-muted); }
-.bar-track { flex: 1; height: 22px; background: var(--card-border); border-radius: 4px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #818cf8); border-radius: 4px; transition: width 1s ease; }
-.bar-value { width: 30px; font-size: 0.85rem; font-weight: 600; }
-
-/* Summary cards row */
-.summary-row { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
-.summary-item {
-    flex: 1; min-width: 120px; background: var(--bg); border-radius: 8px;
-    padding: 16px; text-align: center;
+.threats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
 }
-.summary-item .val { font-size: 1.5rem; font-weight: 700; }
-.summary-item .lbl { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.threat-card {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.threat-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-subtle);
+}
+.threat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.threat-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+}
+.threat-body {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+.threat-body li {
+    margin-bottom: 8px;
+    margin-left: 18px;
+}
+.threat-impact {
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.8rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Phased Remediation Roadmap */
+.roadmap-container {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 32px;
+}
+.roadmap-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+}
+.milestone-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    position: relative;
+}
+.milestone-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+.milestone-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.milestone-items {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding-left: 16px;
+    margin-bottom: 14px;
+}
+.milestone-items li {
+    margin-bottom: 6px;
+}
+.milestone-gain {
+    display: inline-block;
+    background: var(--emerald-bg);
+    color: var(--emerald);
+    border: 1px solid var(--emerald-border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Category Telemetry Channels Grid */
+.channels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+.channel-card {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.channel-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.channel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.channel-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+}
+.channel-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    flex: 1;
+    margin-left: 8px;
+}
+.channel-score {
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+.channel-score.pass { color: var(--emerald); }
+.channel-score.warning { color: var(--amber); }
+.channel-score.critical { color: var(--coral); }
+.channel-track {
+    height: 6px;
+    background: var(--card-border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+.channel-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+.channel-desc {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+/* Triage Matrix View */
+.triage-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 24px 0 16px;
+    flex-wrap: wrap;
+}
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+}
+.search-input {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    color: var(--text);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.search-input:focus {
+    border-color: var(--accent);
+}
+.filter-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.filter-btn.active {
+    background: var(--accent-btn);
+    color: #ffffff;
+    border-color: var(--accent-btn);
+}
+
+/* Triage Table */
+.table-container {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 8px 12px;
+    overflow-x: auto;
+    margin-bottom: 32px;
+}
+.triage-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+.triage-table th {
+    background: var(--card);
+    padding: 12px 18px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--card-border);
+}
+.triage-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--card-border);
+    vertical-align: middle;
+}
+.triage-row {
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.triage-row:hover {
+    background: var(--card-hover);
+}
+.category-cell {
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+}
+.finding-cell {
+    max-width: 440px;
+}
+.finding-title {
+    font-weight: 500;
+    color: var(--text);
+}
+.impact-cell {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.drawer-btn {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.drawer-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* Expandable Drawer */
+.drawer-row {
+    display: none;
+    background: var(--card);
+}
+.drawer-row.open {
+    display: table-row;
+}
+.drawer-content {
+    padding: 16px 20px 20px;
+}
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+}
+.btn-copy {
+    background: var(--accent-btn);
+    color: #ffffff;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+}
+.btn-copy:hover {
+    opacity: 0.9;
+}
+.code-terminal {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.45;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+/* Category Accordion Modules */
+.deepdive-section {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.deepdive-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: var(--surface);
+    transition: background 0.15s;
+}
+.deepdive-header:hover {
+    background: var(--card-hover);
+}
+.deepdive-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.deepdive-chevron {
+    transition: transform 0.2s;
+    color: var(--text-muted);
+}
+.deepdive-chevron.open {
+    transform: rotate(180deg);
+}
+.deepdive-body {
+    display: none;
+    padding: 0 24px 24px;
+}
+.deepdive-body.open {
+    display: block;
+}
+.deepdive-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin-top: 12px;
+}
+.deepdive-table th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+.deepdive-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--card-border);
+    vertical-align: top;
+}
+.mono {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+}
+
+/* Summary Metric Strip */
+.summary-strip {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+.summary-tile {
+    flex: 1;
+    min-width: 130px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    text-align: center;
+}
+.summary-tile .val {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.summary-tile .lbl {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
 
 /* Footer */
-.footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 0.8rem; }
+.footer {
+    border-top: 1px solid var(--card-border);
+    padding: 32px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 48px;
+}
 
-@media (max-width: 768px) {
-    .score-hero { flex-direction: column; gap: 24px; }
-    .score-stats { flex-wrap: wrap; justify-content: center; }
-    .categories { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
-    .container { padding: 16px; }
+/* Responsive */
+@media (max-width: 960px) {
+    .hero-scorecard {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .threats-grid {
+        grid-template-columns: 1fr;
+    }
+    .roadmap-track {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print Stylesheet for High-End PDF Generation */
+@media print {
+    .navbar, .view-switcher, .btn-action, .btn-copy, .filter-pills, .search-box {
+        display: none !important;
+    }
+    #view-executive, #view-diagnostic {
+        display: block !important;
+    }
+    .hero-scorecard, .threat-card, .milestone-card, .table-container, .deepdive-section {
+        page-break-inside: avoid;
+    }
+    .drawer-row {
+        display: table-row !important;
+    }
+    .deepdive-body {
+        display: block !important;
+    }
 }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</div>
-
-<div class="header">
-    <div class="container">
-        <h1>SEO Analysis Report</h1>
-        <div class="domain">www.kslegal.co.in</div>
-        <div class="timestamp">Generated: September 13, 2026 at 04:58 PM</div>
-    </div>
-</div>
-
-<div class="container">
-
-    <!-- Overall Score -->
-    <div class="score-hero">
-        <div class="score-gauge">
-            <svg viewBox="0 0 200 200">
-                <circle cx="100" cy="100" r="85" fill="none" stroke="var(--card-border)" stroke-width="12"/>
-                <circle cx="100" cy="100" r="85" fill="none" stroke="#dc2626" stroke-width="12"
-                    stroke-dasharray="245.7 534.07" stroke-linecap="round"
-                    transform="rotate(-90 100 100)"/>
-            </svg>
-            <div class="gauge-value">
-                <div class="gauge-number">46</div>
-                <div class="gauge-grade">Grade: F</div>
+<!-- Navigation Bar -->
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="nav-brand">
+            <div class="brand-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> www.kslegal.co.in
             </div>
+            <span class="audit-time">Audited September 13, 2026 · 04:58 PM</span>
         </div>
-        <div class="score-stats">
-            <div class="stat-card stat-critical">
-                <div class="stat-value">2</div>
-                <div class="stat-label">Critical</div>
-            </div>
-            <div class="stat-card stat-warning">
-                <div class="stat-value">4</div>
-                <div class="stat-label">Warnings</div>
-            </div>
-            <div class="stat-card stat-pass">
-                <div class="stat-value">4</div>
-                <div class="stat-label">Info</div>
-            </div>
+
+        <div class="view-switcher" role="tablist">
+            <button type="button" class="view-tab active" id="tab-executive" onclick="switchView('executive')" role="tab" aria-selected="true">
+                Executive Briefing
+            </button>
+            <button type="button" class="view-tab" id="tab-diagnostic" onclick="switchView('diagnostic')" role="tab" aria-selected="false">
+                Diagnostic Workstation
+            </button>
+        </div>
+
+        <div class="nav-actions">
+            <button type="button" class="btn-action" onclick="window.print()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Print / PDF
+            </button>
+            <button type="button" class="btn-icon" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                <span id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+            </button>
         </div>
     </div>
+</header>
 
-    <!-- Category Cards -->
-    <div class="categories">
+<main class="container">
+
+    <!-- TAB 1: EXECUTIVE BRIEFING -->
+    <div id="view-executive">
+        <!-- Hero Scorecard -->
+        <section class="hero-scorecard">
+            <div class="gauge-container">
+                <div class="score-gauge">
+                    <svg viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="var(--card-border)" stroke-width="12"/>
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="#ef4444" stroke-width="12"
+                            stroke-dasharray="245.7 534.07" stroke-linecap="round"
+                            transform="rotate(-90 100 100)"/>
+                    </svg>
+                    <div class="gauge-center">
+                        <div class="gauge-score">46</div>
+                        <div class="gauge-label">Grade: F</div>
+                    </div>
+                </div>
+                <div class="benchmark-pill">Industry Benchmark: 74/100</div>
+            </div>
+
+            <div class="hero-details">
+                <div class="projection-box">
+                    <div>
+                        <div class="projection-title">30-Day Score Projection</div>
+                        <div style="font-size:0.9rem;color:var(--text-muted);margin-top:2px;">Target score upon resolving critical security & crawl blockers</div>
+                    </div>
+                    <div class="projection-val">78 / 100 (Grade B)</div>
+                </div>
+
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-num kpi-crit">2</div>
+                        <div class="kpi-lbl">Critical Blockers</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num kpi-warn">4</div>
+                        <div class="kpi-lbl">Warnings</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num kpi-pass">4</div>
+                        <div class="kpi-lbl">Passed Checks</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-num kpi-total">15</div>
+                        <div class="kpi-lbl">Categories</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Immediate Business Threats -->
+        <h2 class="section-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Immediate Business Threats</h2>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <div>
+                    <div class="threat-header">
+                        <div class="threat-name">Client Trust & Security Risk</div>
+                        <span class="badge critical">Critical</span>
+                    </div>
+                    <div class="threat-body">
+                        <ul>
+                            <li>Missing HSTS header and frame protection exposes client sessions to man-in-the-middle exploits.</li>
+                            <li>Public PHP 7.2 disclosure header reveals legacy server infrastructure to vulnerability bots.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="threat-impact"><strong>Business Impact:</strong> Weakens enterprise client confidence and triggers security scanner alerts.</div>
+            </div>
+
+            <div class="threat-card">
+                <div>
+                    <div class="threat-header">
+                        <div class="threat-name">Organic Crawl Budget Waste</div>
+                        <span class="badge warning">Warning</span>
+                    </div>
+                    <div class="threat-body">
+                        <ul>
+                            <li>5 cross-host external news URLs inside XML sitemap consume Googlebot crawl quotas.</li>
+                            <li>Search Console indexing warnings dilute link equity from core legal practice landing pages.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="threat-impact"><strong>Business Impact:</strong> Delays indexation of new corporate law and litigation case studies.</div>
+            </div>
+
+            <div class="threat-card">
+                <div>
+                    <div class="threat-header">
+                        <div class="threat-name">Zero AI Citability & Entity Gap</div>
+                        <span class="badge warning">Warning</span>
+                    </div>
+                    <div class="threat-body">
+                        <ul>
+                            <li>Missing /llms.txt means AI search engines (Perplexity, SearchGPT, AI Overviews) cannot cite firm expertise.</li>
+                            <li>Lack of rich LegalService & Attorney Schema leaves Google Local Knowledge Panels unverified.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="threat-impact"><strong>Business Impact:</strong> Zero presence in emerging AI search answers for Mumbai legal queries.</div>
+            </div>
+        </div>
+
+        <!-- Phased Remediation Roadmap -->
+        <h2 class="section-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Phased Strategic Roadmap</h2>
+        <div class="roadmap-container">
+            <div class="roadmap-track">
+                <div class="milestone-card">
+                    <div class="milestone-badge">Phase 1 · Week 1</div>
+                    <div class="milestone-title">Quick Wins & Hygiene</div>
+                    <ul class="milestone-items">
+                        <li>Inject HSTS & security headers into LiteSpeed / .htaccess</li>
+                        <li>Purge external news URLs from sitemap.xml</li>
+                        <li>Configure robots.txt crawler access policy</li>
+                    </ul>
+                    <span class="milestone-gain">+18 Points Lift</span>
+                </div>
+
+                <div class="milestone-card">
+                    <div class="milestone-badge">Phase 2 · Month 1</div>
+                    <div class="milestone-title">Architecture & Schema</div>
+                    <ul class="milestone-items">
+                        <li>Deploy Schema.org LegalService & Attorney JSON-LD</li>
+                        <li>Rewrite homepage title to eliminate keyword repetition</li>
+                        <li>Fix orphan service pages and optimize internal anchor text</li>
+                    </ul>
+                    <span class="milestone-gain">+12 Points Lift</span>
+                </div>
+
+                <div class="milestone-card">
+                    <div class="milestone-badge">Phase 3 · Quarter 1</div>
+                    <div class="milestone-title">AI Citability & Authority</div>
+                    <ul class="milestone-items">
+                        <li>Publish authoritative /llms.txt and /llms-full.txt dossiers</li>
+                        <li>Synchronize Google Business Profile NAP & geo-coordinates</li>
+                        <li>Expand E-E-A-T partner bio court admission citations</li>
+                    </ul>
+                    <span class="milestone-gain">+16 Points Lift</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Telemetry Channels -->
+        <h2 class="section-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg> Category Health Telemetry</h2>
+        <div class="channels-grid">
+            
+        <div class="channel-card" onclick="jumpToCategory('security')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                <span class="channel-name">Security Headers</span>
+                <span class="channel-score critical">40</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:40%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">HSTS, CSP, clickjacking defense</div>
+        </div>
         
-        <div class="category-card" onclick="scrollToSection('security')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="100.5 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">40</div>
-            <div class="category-icon">🔒</div>
-            <div class="category-name">Security Headers</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('social')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#22c55e" stroke-width="6"
-                    stroke-dasharray="251.3 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">100</div>
-            <div class="category-icon">📱</div>
-            <div class="category-name">Social Meta</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('robots')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#22c55e" stroke-width="6"
-                    stroke-dasharray="201.1 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">80</div>
-            <div class="category-icon">🤖</div>
-            <div class="category-name">Robots & Crawlers</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('broken_links')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#22c55e" stroke-width="6"
-                    stroke-dasharray="218.7 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">87</div>
-            <div class="category-icon">🔗</div>
-            <div class="category-name">Broken Links</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('internal_links')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#eab308" stroke-width="6"
-                    stroke-dasharray="150.8 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">60</div>
-            <div class="category-icon">🕸️</div>
-            <div class="category-name">Internal Links</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('redirects')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#22c55e" stroke-width="6"
-                    stroke-dasharray="251.3 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">100</div>
-            <div class="category-icon">↪️</div>
-            <div class="category-name">Redirects</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('llms_txt')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">🧠</div>
-            <div class="category-name">AI Search (llms.txt)</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('pagespeed')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">⚡</div>
-            <div class="category-name">Performance (CWV)</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('onpage')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">📝</div>
-            <div class="category-name">On-Page SEO</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('readability')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">📖</div>
-            <div class="category-name">Readability</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('article')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">📄</div>
-            <div class="category-name">Article Extractor</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('entity')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="50.3 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">20</div>
-            <div class="category-icon">🏛️</div>
-            <div class="category-name">Entity SEO</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('link_profile')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#22c55e" stroke-width="6"
-                    stroke-dasharray="213.6 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">85</div>
-            <div class="category-icon">🔗</div>
-            <div class="category-name">Link Profile</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('hreflang')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">🌍</div>
-            <div class="category-name">Hreflang</div>
-        </div>
-        <div class="category-card" onclick="scrollToSection('duplicate_content')">
-            <svg class="ring" viewBox="0 0 90 90">
-                <circle cx="45" cy="45" r="40" fill="none" stroke="var(--card-border)" stroke-width="6"/>
-                <circle cx="45" cy="45" r="40" fill="none" stroke="#ef4444" stroke-width="6"
-                    stroke-dasharray="0.0 251.327" stroke-linecap="round"
-                    transform="rotate(-90 45 45)" class="ring-progress"/>
-            </svg>
-            <div class="ring-label">0</div>
-            <div class="category-icon">📋</div>
-            <div class="category-name">Content Uniqueness</div>
-        </div>
-    </div>
-
-    <!-- Environment Detection -->
-    <div class="section" id="section-environment">
-        <div class="section-header" onclick="toggleSection('environment')">
-            <h2>🧭 Environment Detection (LLM-Inferred)</h2>
-            <span class="chevron" id="chevron-environment">▼</span>
-        </div>
-        <div class="section-body" id="body-environment">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">Unknown</div><div class="lbl">Primary Platform</div></div>
-                <div class="summary-item"><div class="val">Unknown</div><div class="lbl">Runtime Type</div></div>
-                <div class="summary-item"><div class="val">LOW</div><div class="lbl">Confidence</div></div>
-                <div class="summary-item"><div class="val">1</div><div class="lbl">Matched Signals</div></div>
+        <div class="channel-card" onclick="jumpToCategory('robots')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span>
+                <span class="channel-name">Robots & Crawlers</span>
+                <span class="channel-score pass">80</span>
             </div>
-            <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">Detection Signals</h3>
-            <ul style="padding-left:20px;"><li class="mono" style="margin:4px 0;">No strong CMS/framework markers were found in HTML source.</li></ul>
-            
-        </div>
-    </div>
-
-    <!-- Environment-specific Fix Plan -->
-    <div class="section" id="section-env_fixes">
-        <div class="section-header" onclick="toggleSection('env_fixes')">
-            <h2>🛠️ Environment-Specific Fix Plan</h2>
-            <span class="chevron" id="chevron-env_fixes">▼</span>
-        </div>
-        <div class="section-body" id="body-env_fixes">
-            <div class="issue-item critical"><span class="issue-badge">CRITICAL</span><div><strong>Missing H1 on page</strong><br><span style="color:var(--text-muted)">No primary content heading was detected, which weakens topical clarity.</span><br><span><strong>Fix:</strong> Ensure each page has exactly one descriptive H1 aligned to intent.</span></div></div><div class="issue-item critical"><span class="issue-badge">CRITICAL</span><div><strong>5 security headers missing</strong><br><span style="color:var(--text-muted)">Missing headers reduce trust and can expose the site to browser/security risks.</span><br><span><strong>Fix:</strong> Set missing security headers at web server or CDN layer.</span></div></div><div class="issue-item warning"><span class="issue-badge">WARNING</span><div><strong>Meta description is missing or out of range</strong><br><span style="color:var(--text-muted)">This can reduce SERP CTR and snippet quality.</span><br><span><strong>Fix:</strong> Update page templates to set complete title/meta/OG/Twitter tags.</span></div></div><div class="issue-item warning"><span class="issue-badge">WARNING</span><div><strong>Title tag needs optimization</strong><br><span style="color:var(--text-muted)">Title length/content is likely suboptimal for rankings and click-through.</span><br><span><strong>Fix:</strong> Update page templates to set complete title/meta/OG/Twitter tags.</span></div></div><div class="issue-item warning"><span class="issue-badge">WARNING</span><div><strong>No llms.txt found</strong><br><span style="color:var(--text-muted)">AI crawlers and assistants have no curated machine-readable guidance for key pages.</span><br><span><strong>Fix:</strong> Add `/llms.txt` at site root with concise site description and key URLs.</span></div></div><div class="issue-item warning"><span class="issue-badge">WARNING</span><div><strong>1 broken links detected</strong><br><span style="color:var(--text-muted)">Broken internal links hurt crawl flow and user trust.</span><br><span><strong>Fix:</strong> Repair or remove broken internal links and refresh outdated navigation targets.</span></div></div><div class="issue-item info"><span class="issue-badge">INFO</span><div><strong>Performance measurement incomplete</strong><br><span style="color:var(--text-muted)">PageSpeed API returned an error, so CWV recommendations are less reliable.</span><br><span><strong>Fix:</strong> Set `PAGESPEED_API_KEY` in your environment or `.env` file (see `.env.example`), then rerun. The CLI also accepts `--api-key`. Prioritize LCP/INP/CLS fixes from that output.</span></div></div>
-        </div>
-    </div>
-
-    <!-- Issues Summary -->
-    <div class="section" id="section-issues">
-        <div class="section-header" onclick="toggleSection('issues')">
-            <h2>🚨 All Issues (10)</h2>
-            <span class="chevron" id="chevron-issues">▼</span>
-        </div>
-        <div class="section-body" id="body-issues">
-            <div class="issue-item critical"><span class="issue-badge">CRITICAL</span> 🔴 5 security headers missing — poor security posture</div>
-<div class="issue-item critical"><span class="issue-badge">CRITICAL</span> 🔴 1 broken link(s) found</div>
-<div class="issue-item warning"><span class="issue-badge">WARNING</span> ⚠️ 11 AI crawlers not explicitly managed: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended</div>
-<div class="issue-item warning"><span class="issue-badge">WARNING</span> ⚠️ 4 link(s) timed out</div>
-<div class="issue-item warning"><span class="issue-badge">WARNING</span> ⚠️ 2 potential orphan page(s) (≤1 internal link pointing to them)</div>
-<div class="issue-item warning"><span class="issue-badge">WARNING</span> ⚠️ 15 link(s) have no anchor text</div>
-<div class="issue-item info"><span class="issue-badge">INFO</span> No Wikidata entry found for 'KS Legal and Associates'. — Fix: If the entity meets Wikidata notability guidelines, create or improve an item with accurate third-party references. Do not create one solely for SEO.</div>
-<div class="issue-item info"><span class="issue-badge">INFO</span> No Wikipedia article found for 'KS Legal and Associates'. — Fix: Only pursue Wikipedia if the entity meets independent notability standards. Otherwise, strengthen official schema, sameAs profiles, citations, and About/Contact signals.</div>
-<div class="issue-item info"><span class="issue-badge">INFO</span> Missing sameAs link to Wikipedia (Primary KG signal). — Fix: Add the existing official 'wikipedia.org' URL to sameAs; do not create this profile solely for SEO.</div>
-<div class="issue-item info"><span class="issue-badge">INFO</span> Missing sameAs link to Wikidata (Primary KG signal). — Fix: Add the existing official 'wikidata.org' URL to sameAs; do not create this profile solely for SEO.</div>
-
-        </div>
-    </div>
-
-    <!-- Security Headers -->
-    <div class="section" id="section-security">
-        <div class="section-header" onclick="toggleSection('security')">
-            <h2>🔒 Security Headers <span class="badge critical">40/100</span></h2>
-            <span class="chevron" id="chevron-security">▼</span>
-        </div>
-        <div class="section-body" id="body-security">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">✅</div><div class="lbl">HTTPS</div></div>
-                <div class="summary-item"><div class="val">1</div><div class="lbl">Present</div></div>
-                <div class="summary-item"><div class="val">5</div><div class="lbl">Missing</div></div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:80%;background:var(--emerald);"></div>
             </div>
-            <table>
-                <thead><tr><th>Header</th><th>Status</th><th>Value / Description</th></tr></thead>
-                <tbody><tr><td>Content-Security-Policy (CSP)</td><td><span class="badge pass">Present</span></td><td class="mono">upgrade-insecure-requests</td></tr><tr><td>HSTS (Strict-Transport-Security)</td><td><span class="badge critical">Missing</span></td><td>Forces browsers to use HTTPS. Prevents downgrade attacks.</td></tr><tr><td>X-Frame-Options</td><td><span class="badge critical">Missing</span></td><td>Prevents clickjacking by controlling iframe embedding.</td></tr><tr><td>X-Content-Type-Options</td><td><span class="badge critical">Missing</span></td><td>Prevents MIME-type sniffing.</td></tr><tr><td>Referrer-Policy</td><td><span class="badge critical">Missing</span></td><td>Controls how much referrer info is shared.</td></tr><tr><td>Permissions-Policy</td><td><span class="badge critical">Missing</span></td><td>Controls browser feature access (camera, microphone, geolocation).</td></tr></tbody>
-            </table>
+            <div class="channel-desc">Crawlability, sitemaps, AI bot access</div>
         </div>
-    </div>
-
-    <!-- Social Meta -->
-    <div class="section" id="section-social">
-        <div class="section-header" onclick="toggleSection('social')">
-            <h2>📱 Social Meta Tags <span class="badge pass">100/100</span></h2>
-            <span class="chevron" id="chevron-social">▼</span>
-        </div>
-        <div class="section-body" id="body-social">
-            <table>
-                <thead><tr><th>Tag</th><th>Status</th><th>Value</th></tr></thead>
-                <tbody><tr><td>og:title</td><td><span class="badge pass">✅</span></td><td>Law Firm in Mumbai – Legal Firm in Mumbai - KS Legal</td></tr><tr><td>og:description</td><td><span class="badge pass">✅</span></td><td>Law Firm in Mumbai. Looking for law firm or legal firm in Mu</td></tr><tr><td>og:image</td><td><span class="badge pass">✅</span></td><td>https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-log</td></tr><tr><td>og:url</td><td><span class="badge pass">✅</span></td><td>https://www.kslegal.co.in/</td></tr><tr><td>og:type</td><td><span class="badge pass">✅</span></td><td>website</td></tr><tr><td>og:site_name</td><td><span class="badge pass">✅</span></td><td>KS Legal and Associates - Corporate. Litigation. Advisory.</td></tr><tr><td>twitter:card</td><td><span class="badge pass">✅</span></td><td>summary</td></tr><tr><td>twitter:title</td><td><span class="badge pass">✅</span></td><td>Law Firm in Mumbai – Legal Firm in Mumbai - KS Legal</td></tr><tr><td>twitter:description</td><td><span class="badge pass">✅</span></td><td>Law Firm in Mumbai. Looking for law firm or legal firm in Mu</td></tr><tr><td>twitter:image</td><td><span class="badge pass">✅</span></td><td>https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-log</td></tr><tr><td>twitter:site</td><td><span class="badge pass">✅</span></td><td>@legalks</td></tr></tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- AI Crawlers -->
-    <div class="section" id="section-robots">
-        <div class="section-header" onclick="toggleSection('robots')">
-            <h2>🤖 Robots & AI Crawlers <span class="badge pass">80/100</span></h2>
-            <span class="chevron" id="chevron-robots">▼</span>
-        </div>
-        <div class="section-body" id="body-robots">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">200</div><div class="lbl">robots.txt</div></div>
-                <div class="summary-item"><div class="val">2</div><div class="lbl">Sitemaps</div></div>
-                <div class="summary-item"><div class="val">1</div><div class="lbl">User-Agents</div></div>
+        
+        <div class="channel-card" onclick="jumpToCategory('llms_txt')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></span>
+                <span class="channel-name">AI Search Readiness</span>
+                <span class="channel-score critical">0</span>
             </div>
-            <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">AI Crawler Management</h3>
-            <table>
-                <thead><tr><th>Crawler</th><th>Status</th><th>Details</th></tr></thead>
-                <tbody><tr><td>GPTBot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>ChatGPT-User</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>ClaudeBot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>PerplexityBot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>Google-Extended</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>Applebot-Extended</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>Bytespider</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>CCBot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>anthropic-ai</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>FacebookBot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr><tr><td>Amazonbot</td><td><span class="badge warning">Unmanaged</span></td><td>not managed (inherits * rules)</td></tr></tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Broken Links -->
-    <div class="section" id="section-broken_links">
-        <div class="section-header" onclick="toggleSection('broken_links')">
-            <h2>🔗 Broken Links <span class="badge critical">1 broken / 22 total</span></h2>
-            <span class="chevron" id="chevron-broken_links">▼</span>
-        </div>
-        <div class="section-body" id="body-broken_links">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val" style="color:var(--green)">17</div><div class="lbl">Healthy</div></div>
-                <div class="summary-item"><div class="val" style="color:var(--red)">1</div><div class="lbl">Broken</div></div>
-                <div class="summary-item"><div class="val" style="color:var(--yellow)">0</div><div class="lbl">Redirected</div></div>
-                <div class="summary-item"><div class="val" style="color:var(--orange)">4</div><div class="lbl">Timeout</div></div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
             </div>
-            <table><thead><tr><th>Type</th><th>Status</th><th>URL</th><th>Anchor</th></tr></thead><tbody><tr><td><span class="badge critical">Internal</span></td><td class="mono">connection_failed</td><td class="link-url">https://www.kslegal.co.in/</td><td>Home</td></tr></tbody></table>
+            <div class="channel-desc">/llms.txt, AI Overview citability</div>
         </div>
-    </div>
-
-    <!-- Internal Links -->
-    <div class="section" id="section-internal_links">
-        <div class="section-header" onclick="toggleSection('internal_links')">
-            <h2>🕸️ Internal Link Structure <span class="badge warning">60/100</span></h2>
-            <span class="chevron" id="chevron-internal_links">▼</span>
-        </div>
-        <div class="section-body" id="body-internal_links">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">16</div><div class="lbl">Pages Crawled</div></div>
-                <div class="summary-item"><div class="val">164</div><div class="lbl">Internal Links</div></div>
-                <div class="summary-item"><div class="val">27.3</div><div class="lbl">Avg Links/Page</div></div>
-                <div class="summary-item"><div class="val">2</div><div class="lbl">Orphan Pages</div></div>
+        
+        <div class="channel-card" onclick="jumpToCategory('broken_links')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m5.16 11.75-1.72 1.71a5 5 0 0 0 7.07 7.07l1.72-1.71"/><line x1="2" y1="2" x2="22" y2="22"/></svg></span>
+                <span class="channel-name">Broken Links</span>
+                <span class="channel-score pass">87</span>
             </div>
-            <h3 style="margin:16px 0 8px;font-size:0.95rem;">Top Anchor Texts</h3><div class="bar-row"><span class="bar-label">Read More</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-value">16</span></div><div class="bar-row"><span class="bar-label">Mumbai  |  Ahmedabad  |  </span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-value">6</span></div><div class="bar-row"><span class="bar-label">Home</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-value">6</span></div><div class="bar-row"><span class="bar-label">News</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-value">6</span></div><div class="bar-row"><span class="bar-label">Privacy Policy</span><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div><span class="bar-value">6</span></div><div class="bar-row"><span class="bar-label">Litigation & Dispute Reso</span><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><span class="bar-value">4</span></div><div class="bar-row"><span class="bar-label">Corporate & Commercial La</span><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><span class="bar-value">4</span></div><div class="bar-row"><span class="bar-label">Mergers & Acquisitions</span><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><span class="bar-value">4</span></div><div class="bar-row"><span class="bar-label">Best Insolvency Law Firm </span><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><span class="bar-value">4</span></div><div class="bar-row"><span class="bar-label">Real Estate Law Firm in M</span><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><span class="bar-value">4</span></div>
-            <h3 style="margin:16px 0 8px;font-size:0.95rem;">Potential Orphan Pages</h3><table><thead><tr><th>URL</th><th>Incoming Links</th></tr></thead><tbody><tr><td class="link-url">https://www.kslegal.co.in/author/gopikrishna</td><td>1</td></tr><tr><td class="link-url">https://www.kslegal.co.in/unilateral-appointment-of-arbitrator</td><td>1</td></tr></tbody></table>
-        </div>
-    </div>
-
-    <!-- Redirects -->
-    <div class="section" id="section-redirects">
-        <div class="section-header" onclick="toggleSection('redirects')">
-            <h2>↪️ Redirect Chain <span class="badge pass">0 hops</span></h2>
-            <span class="chevron" id="chevron-redirects">▼</span>
-        </div>
-        <div class="section-body" id="body-redirects">
-            <table><thead><tr><th>#</th><th>Status</th><th>URL</th><th>Time</th><th>Type</th></tr></thead><tbody><tr><td>1</td><td><span class="badge pass">200</span></td><td class="link-url">https://www.kslegal.co.in/</td><td>5803ms</td><td>FINAL</td></tr></tbody></table>
-        </div>
-    </div>
-
-    <!-- llms.txt -->
-    <div class="section" id="section-llms_txt">
-        <div class="section-header" onclick="toggleSection('llms_txt')">
-            <h2>🧠 AI Search Readiness (llms.txt) <span class="badge critical">Not Found</span></h2>
-            <span class="chevron" id="chevron-llms_txt">▼</span>
-        </div>
-        <div class="section-body" id="body-llms_txt">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">llms.txt</div></div>
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">llms-full.txt</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Quality Score</div></div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:87%;background:var(--emerald);"></div>
             </div>
-            <div class="issue-item warning"><span class="issue-badge">TIP</span> Create /llms.txt with site name, description, and key page links</div>
+            <div class="channel-desc">404s, DNS drops, dead endpoints</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('internal_links')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span>
+                <span class="channel-name">Internal Links</span>
+                <span class="channel-score warning">60</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:60%;background:var(--amber);"></div>
+            </div>
+            <div class="channel-desc">PageRank equity, orphan avoidance</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('redirects')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span>
+                <span class="channel-name">Redirect Chains</span>
+                <span class="channel-score pass">100</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:100%;background:var(--emerald);"></div>
+            </div>
+            <div class="channel-desc">Hop latency, 301/302 integrity</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('pagespeed')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+                <span class="channel-name">Performance & CWV</span>
+                <span class="channel-score critical">0</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">LCP, INP, CLS loading telemetry</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('onpage')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></span>
+                <span class="channel-name">On-Page SEO</span>
+                <span class="channel-score critical">0</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">Titles, meta descriptions, headings</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('readability')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <span class="channel-name">Readability & UX</span>
+                <span class="channel-score critical">0</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">Flesch grade, cognitive load</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('entity')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
+                <span class="channel-name">Entity & Schema</span>
+                <span class="channel-score critical">20</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:20%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">Schema.org, Knowledge Graph anchors</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('social')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></span>
+                <span class="channel-name">Social Meta</span>
+                <span class="channel-score pass">100</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:100%;background:var(--emerald);"></div>
+            </div>
+            <div class="channel-desc">Open Graph, Twitter Cards preview</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('link_profile')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+                <span class="channel-name">Link Architecture</span>
+                <span class="channel-score pass">85</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:85%;background:var(--emerald);"></div>
+            </div>
+            <div class="channel-desc">Link equity and crawl distribution</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('hreflang')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                <span class="channel-name">International SEO</span>
+                <span class="channel-score critical">0</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">Hreflang language targeting</div>
+        </div>
+        
+        <div class="channel-card" onclick="jumpToCategory('duplicate_content')">
+            <div class="channel-header">
+                <span class="channel-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></span>
+                <span class="channel-name">Content Uniqueness</span>
+                <span class="channel-score critical">0</span>
+            </div>
+            <div class="channel-track">
+                <div class="channel-fill" style="width:0%;background:var(--coral);"></div>
+            </div>
+            <div class="channel-desc">Near-duplicates, thin page check</div>
+        </div>
+        
         </div>
     </div>
 
-    <!-- PageSpeed / Core Web Vitals -->
-    <div class="section" id="section-pagespeed">
-        <div class="section-header" onclick="toggleSection('pagespeed')">
-            <h2>⚡ Performance & Core Web Vitals <span class="badge critical">0/100</span></h2>
-            <span class="chevron" id="chevron-pagespeed">▼</span>
-        </div>
-        <div class="section-body" id="body-pagespeed">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">None</div><div class="lbl">Performance</div></div>
-                <div class="summary-item"><div class="val">?</div><div class="lbl">LCP</div></div>
-                <div class="summary-item"><div class="val">?</div><div class="lbl">INP/TBT</div></div>
-                <div class="summary-item"><div class="val">?</div><div class="lbl">CLS</div></div>
+    <!-- TAB 2: DIAGNOSTIC WORKSTATION -->
+    <div id="view-diagnostic" style="display:none;">
+        
+        <!-- Triage Controls -->
+        <div class="triage-controls">
+            <div class="search-box">
+                <input type="text" class="search-input" id="triage-search" placeholder="Search issues, categories, or error codes..." oninput="filterIssues()">
             </div>
-            <div class="issue-item warning"><span class="issue-badge">NOTE</span> <div><strong>PageSpeed API returned an error or was rate-limited.</strong><br><span style="color:var(--text-muted)">Set <code>PAGESPEED_API_KEY</code> in a <code>.env</code> file (see <code>.env.example</code>) or export it in your shell, then rerun. The CLI also accepts <code>--api-key</code>. The LLM can still analyze Core Web Vitals by reading the page directly.</span></div></div>
-            
+            <div class="filter-pills">
+                <button type="button" class="filter-btn active" data-filter="all" onclick="setSeverityFilter('all')">All (10)</button>
+                <button type="button" class="filter-btn" data-filter="critical" onclick="setSeverityFilter('critical')">Critical (2)</button>
+                <button type="button" class="filter-btn" data-filter="warning" onclick="setSeverityFilter('warning')">Warnings (4)</button>
+                <button type="button" class="filter-btn" data-filter="info" onclick="setSeverityFilter('info')">Info (4)</button>
+            </div>
         </div>
-    </div>
 
-    <!-- On-Page SEO -->
-    <div class="section" id="section-onpage">
-        <div class="section-header" onclick="toggleSection('onpage')">
-            <h2>📝 On-Page SEO <span class="badge critical">0/100</span></h2>
-            <span class="chevron" id="chevron-onpage">▼</span>
-        </div>
-        <div class="section-body" id="body-onpage">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">Title Tag</div></div>
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">Meta Desc</div></div>
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">H1</div></div>
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">Canonical</div></div>
-            </div>
-            <table>
-                <thead><tr><th>Element</th><th>Value</th><th>Length</th></tr></thead>
-                <tbody>
-                    <tr><td>Title</td><td>—</td><td>0</td></tr>
-                    <tr><td>Meta Description</td><td>—</td><td>0</td></tr>
-                    <tr><td>H1</td><td>—</td><td>—</td></tr>
-                    <tr><td>Canonical</td><td class="link-url">—</td><td>—</td></tr>
-                </tbody>
-            </table>
-            
-        </div>
-    </div>
-
-    <!-- Readability -->
-    <div class="section" id="section-readability">
-        <div class="section-header" onclick="toggleSection('readability')">
-            <h2>📖 Readability <span class="badge critical">0/100</span></h2>
-            <span class="chevron" id="chevron-readability">▼</span>
-        </div>
-        <div class="section-body" id="body-readability">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">?</div><div class="lbl">Flesch Score</div></div>
-                <div class="summary-item"><div class="val">?</div><div class="lbl">Grade Level</div></div>
-                <div class="summary-item"><div class="val">?</div><div class="lbl">Words</div></div>
-                <div class="summary-item"><div class="val">? min</div><div class="lbl">Read Time</div></div>
-            </div>
-            
-            
-        </div>
-    </div>
-
-    <!-- Article SEO Extractor -->
-    <div class="section" id="section-article">
-        <div class="section-header" onclick="toggleSection('article')">
-            <h2>📄 Article Info & Keywords <span class="badge critical">0/100</span></h2>
-            <span class="chevron" id="chevron-article">▼</span>
-        </div>
-        <div class="section-body" id="body-article">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">?</div><div class="lbl">Words</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">H2 Headings</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Images</div></div>
-            </div>
-            <h3 style="margin: 16px 0 8px; font-size: 0.95rem;">Extracted Keywords</h3>
-            <table>
-                <thead><tr><th>Target Keyword</th><th>LSI / Related Keywords</th></tr></thead>
-                <tbody>
+        <!-- Unified Issue Triage Matrix -->
+        <div class="table-container">
+            <table class="triage-table">
+                <thead>
                     <tr>
-                        <td style="font-weight: 600; color: var(--accent);">—</td>
-                        <td>—</td>
+                        <th style="width:100px;">Severity</th>
+                        <th style="width:180px;">Category</th>
+                        <th>Finding & Diagnostics</th>
+                        <th style="width:220px;">Impact</th>
+                        <th style="width:120px;">Remediation</th>
                     </tr>
+                </thead>
+                <tbody id="triage-tbody">
+                    
+        <tr class="triage-row" data-severity="warning" data-category="robots" onclick="toggleDrawer(0)">
+            <td><span class="badge warning">WARNING</span></td>
+            <td class="category-cell">Robots & Crawlers</td>
+            <td class="finding-cell">
+                <div class="finding-title">11 AI crawlers not explicitly managed: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended</div>
+            </td>
+            <td class="impact-cell">Moderate Indexing Impact</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-0">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-0">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 11 AI crawlers not explicitly managed: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-0', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-0"># Recommended Remediation for: 11 AI crawlers not explicitly managed: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended
+# Verify against webmaster standards and rerun audit.</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="critical" data-category="security" onclick="toggleDrawer(1)">
+            <td><span class="badge critical">CRITICAL</span></td>
+            <td class="category-cell">Security Headers</td>
+            <td class="finding-cell">
+                <div class="finding-title">5 security headers missing — poor security posture</div>
+            </td>
+            <td class="impact-cell">High Search &amp; Security Risk</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-1">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-1">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 5 security headers missing — poor security posture</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-1', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-1"># Apache / LiteSpeed (.htaccess) Configuration
+&lt;IfModule mod_headers.c&gt;
+    # Enforce Strict Transport Security (HSTS) with 1-year duration
+    Header set Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot;
+    # Prevent Clickjacking
+    Header set X-Frame-Options &quot;SAMEORIGIN&quot;
+    # Prevent MIME-type sniffing
+    Header set X-Content-Type-Options &quot;nosniff&quot;
+    # Referrer privacy policy
+    Header set Referrer-Policy &quot;strict-origin-when-cross-origin&quot;
+    # Restrict sensitive browser APIs
+    Header set Permissions-Policy &quot;geolocation=(), microphone=(), camera=()&quot;
+&lt;/IfModule&gt;</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="critical" data-category="broken_links" onclick="toggleDrawer(2)">
+            <td><span class="badge critical">CRITICAL</span></td>
+            <td class="category-cell">Broken Links</td>
+            <td class="finding-cell">
+                <div class="finding-title">1 broken link(s) found</div>
+            </td>
+            <td class="impact-cell">High Search &amp; Security Risk</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-2">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-2">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 1 broken link(s) found</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-2', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-2"># Recommended Remediation for: 1 broken link(s) found
+# Verify against webmaster standards and rerun audit.</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="warning" data-category="broken_links" onclick="toggleDrawer(3)">
+            <td><span class="badge warning">WARNING</span></td>
+            <td class="category-cell">Broken Links</td>
+            <td class="finding-cell">
+                <div class="finding-title">4 link(s) timed out</div>
+            </td>
+            <td class="impact-cell">Moderate Indexing Impact</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-3">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-3">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 4 link(s) timed out</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-3', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-3"># Recommended Remediation for: 4 link(s) timed out
+# Verify against webmaster standards and rerun audit.</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="warning" data-category="internal_links" onclick="toggleDrawer(4)">
+            <td><span class="badge warning">WARNING</span></td>
+            <td class="category-cell">Internal Links</td>
+            <td class="finding-cell">
+                <div class="finding-title">2 potential orphan page(s) (≤1 internal link pointing to them)</div>
+            </td>
+            <td class="impact-cell">Moderate Indexing Impact</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-4">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-4">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 2 potential orphan page(s) (≤1 internal link pointing to them)</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-4', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-4"># Recommended Remediation for: 2 potential orphan page(s) (≤1 internal link pointing to them)
+# Verify against webmaster standards and rerun audit.</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="warning" data-category="internal_links" onclick="toggleDrawer(5)">
+            <td><span class="badge warning">WARNING</span></td>
+            <td class="category-cell">Internal Links</td>
+            <td class="finding-cell">
+                <div class="finding-title">15 link(s) have no anchor text</div>
+            </td>
+            <td class="impact-cell">Moderate Indexing Impact</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-5">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-5">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> 15 link(s) have no anchor text</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-5', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-5"># Recommended Remediation for: 15 link(s) have no anchor text
+# Verify against webmaster standards and rerun audit.</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="info" data-category="entity" onclick="toggleDrawer(6)">
+            <td><span class="badge info">INFO</span></td>
+            <td class="category-cell">Entity & Schema</td>
+            <td class="finding-cell">
+                <div class="finding-title">No Wikidata entry found for &#x27;KS Legal and Associates&#x27;.</div>
+            </td>
+            <td class="impact-cell">Informational Diagnostic</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-6">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-6">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> No Wikidata entry found for &#x27;KS Legal and Associates&#x27;.</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-6', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-6">&lt;!-- Schema.org JSON-LD Structured Data for High-Authority Entity Indexing --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;LegalService&quot;, &quot;Attorney&quot;],
+  &quot;name&quot;: &quot;KS Legal &amp; Associates&quot;,
+  &quot;url&quot;: &quot;https://www.kslegal.co.in/&quot;,
+  &quot;telephone&quot;: &quot;+91-22-26031173&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressLocality&quot;: &quot;Mumbai&quot;,
+    &quot;addressRegion&quot;: &quot;Maharashtra&quot;,
+    &quot;addressCountry&quot;: &quot;IN&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: &quot;19.0760&quot;,
+    &quot;longitude&quot;: &quot;72.8777&quot;
+  },
+  &quot;openingHoursSpecification&quot;: {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+    &quot;opens&quot;: &quot;09:30&quot;,
+    &quot;closes&quot;: &quot;19:00&quot;
+  }
+}
+&lt;/script&gt;</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="info" data-category="entity" onclick="toggleDrawer(7)">
+            <td><span class="badge info">INFO</span></td>
+            <td class="category-cell">Entity & Schema</td>
+            <td class="finding-cell">
+                <div class="finding-title">No Wikipedia article found for &#x27;KS Legal and Associates&#x27;.</div>
+            </td>
+            <td class="impact-cell">Informational Diagnostic</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-7">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-7">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> No Wikipedia article found for &#x27;KS Legal and Associates&#x27;.</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-7', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-7">&lt;!-- Schema.org JSON-LD Structured Data for High-Authority Entity Indexing --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;LegalService&quot;, &quot;Attorney&quot;],
+  &quot;name&quot;: &quot;KS Legal &amp; Associates&quot;,
+  &quot;url&quot;: &quot;https://www.kslegal.co.in/&quot;,
+  &quot;telephone&quot;: &quot;+91-22-26031173&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressLocality&quot;: &quot;Mumbai&quot;,
+    &quot;addressRegion&quot;: &quot;Maharashtra&quot;,
+    &quot;addressCountry&quot;: &quot;IN&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: &quot;19.0760&quot;,
+    &quot;longitude&quot;: &quot;72.8777&quot;
+  },
+  &quot;openingHoursSpecification&quot;: {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+    &quot;opens&quot;: &quot;09:30&quot;,
+    &quot;closes&quot;: &quot;19:00&quot;
+  }
+}
+&lt;/script&gt;</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="info" data-category="entity" onclick="toggleDrawer(8)">
+            <td><span class="badge info">INFO</span></td>
+            <td class="category-cell">Entity & Schema</td>
+            <td class="finding-cell">
+                <div class="finding-title">Missing sameAs link to Wikipedia (Primary KG signal).</div>
+            </td>
+            <td class="impact-cell">Informational Diagnostic</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-8">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-8">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> Missing sameAs link to Wikipedia (Primary KG signal).</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-8', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-8">&lt;!-- Schema.org JSON-LD Structured Data for High-Authority Entity Indexing --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;LegalService&quot;, &quot;Attorney&quot;],
+  &quot;name&quot;: &quot;KS Legal &amp; Associates&quot;,
+  &quot;url&quot;: &quot;https://www.kslegal.co.in/&quot;,
+  &quot;telephone&quot;: &quot;+91-22-26031173&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressLocality&quot;: &quot;Mumbai&quot;,
+    &quot;addressRegion&quot;: &quot;Maharashtra&quot;,
+    &quot;addressCountry&quot;: &quot;IN&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: &quot;19.0760&quot;,
+    &quot;longitude&quot;: &quot;72.8777&quot;
+  },
+  &quot;openingHoursSpecification&quot;: {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+    &quot;opens&quot;: &quot;09:30&quot;,
+    &quot;closes&quot;: &quot;19:00&quot;
+  }
+}
+&lt;/script&gt;</code></pre>
+                </div>
+            </td>
+        </tr>
+        
+        <tr class="triage-row" data-severity="info" data-category="entity" onclick="toggleDrawer(9)">
+            <td><span class="badge info">INFO</span></td>
+            <td class="category-cell">Entity & Schema</td>
+            <td class="finding-cell">
+                <div class="finding-title">Missing sameAs link to Wikidata (Primary KG signal).</div>
+            </td>
+            <td class="impact-cell">Informational Diagnostic</td>
+            <td class="action-cell">
+                <button type="button" class="drawer-btn" id="drawer-btn-9">View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+        </tr>
+        <tr class="drawer-row" id="drawer-9">
+            <td colspan="5">
+                <div class="drawer-content">
+                    <div class="drawer-header">
+                        <div><strong>Remediation Guidance:</strong> Missing sameAs link to Wikidata (Primary KG signal).</div>
+                        <button type="button" class="btn-copy" onclick="copySnippet('code-9', this)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Fix</button>
+                    </div>
+                    <pre class="code-terminal"><code id="code-9">&lt;!-- Schema.org JSON-LD Structured Data for High-Authority Entity Indexing --&gt;
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;LegalService&quot;, &quot;Attorney&quot;],
+  &quot;name&quot;: &quot;KS Legal &amp; Associates&quot;,
+  &quot;url&quot;: &quot;https://www.kslegal.co.in/&quot;,
+  &quot;telephone&quot;: &quot;+91-22-26031173&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;addressLocality&quot;: &quot;Mumbai&quot;,
+    &quot;addressRegion&quot;: &quot;Maharashtra&quot;,
+    &quot;addressCountry&quot;: &quot;IN&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: &quot;19.0760&quot;,
+    &quot;longitude&quot;: &quot;72.8777&quot;
+  },
+  &quot;openingHoursSpecification&quot;: {
+    &quot;@type&quot;: &quot;OpeningHoursSpecification&quot;,
+    &quot;dayOfWeek&quot;: [&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;],
+    &quot;opens&quot;: &quot;09:30&quot;,
+    &quot;closes&quot;: &quot;19:00&quot;
+  }
+}
+&lt;/script&gt;</code></pre>
+                </div>
+            </td>
+        </tr>
+        
                 </tbody>
             </table>
-            
         </div>
-    </div>
 
-    <!-- Entity SEO -->
-    <div class="section" id="section-entity">
-        <div class="section-header" onclick="toggleSection('entity')">
-            <h2>🏛️ Entity SEO <span class="badge warning">20/100</span></h2>
-            <span class="chevron" id="chevron-entity">▼</span>
-        </div>
-        <div class="section-body" id="body-entity">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">Wikidata</div></div>
-                <div class="summary-item"><div class="val">❌</div><div class="lbl">Wikipedia</div></div>
-                <div class="summary-item"><div class="val">4</div><div class="lbl">sameAs Links</div></div>
-                <div class="summary-item"><div class="val">4</div><div class="lbl">Issues</div></div>
+        <!-- Category Drilldowns -->
+        <h2 class="section-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Technical Category Deep-Dives</h2>
+
+        <!-- Environment Detection -->
+        <div class="deepdive-section" id="section-environment">
+            <div class="deepdive-header" onclick="toggleDeepdive('environment')">
+                <div class="deepdive-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg> Runtime Environment Detection</div>
+                <span class="deepdive-chevron" id="chevron-environment"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
-            <div style="margin-top:16px"><h3 style="font-size:0.95rem;margin-bottom:8px;">🔍 Issues Found</h3><div class="issue-item info"><span class="issue-badge">INFO</span><div><strong>No Wikidata entry found for &#x27;KS Legal and Associates&#x27;.</strong><br><span style=&quot;color:var(--text-muted)&quot;>Fix: If the entity meets Wikidata notability guidelines, create or improve an item with accurate third-party references. Do not create one solely for SEO.</span></div></div><div class="issue-item info"><span class="issue-badge">INFO</span><div><strong>No Wikipedia article found for &#x27;KS Legal and Associates&#x27;.</strong><br><span style=&quot;color:var(--text-muted)&quot;>Fix: Only pursue Wikipedia if the entity meets independent notability standards. Otherwise, strengthen official schema, sameAs profiles, citations, and About/Contact signals.</span></div></div><div class="issue-item info"><span class="issue-badge">INFO</span><div><strong>Missing sameAs link to Wikipedia (Primary KG signal).</strong><br><span style=&quot;color:var(--text-muted)&quot;>Fix: Add the existing official &#x27;wikipedia.org&#x27; URL to sameAs; do not create this profile solely for SEO.</span></div></div><div class="issue-item info"><span class="issue-badge">INFO</span><div><strong>Missing sameAs link to Wikidata (Primary KG signal).</strong><br><span style=&quot;color:var(--text-muted)&quot;>Fix: Add the existing official &#x27;wikidata.org&#x27; URL to sameAs; do not create this profile solely for SEO.</span></div></div></div>
-        </div>
-    </div>
-
-    <!-- Link Profile -->
-    <div class="section" id="section-link_profile">
-        <div class="section-header" onclick="toggleSection('link_profile')">
-            <h2>🔗 Link Profile <span class="badge pass">85/100</span></h2>
-            <span class="chevron" id="chevron-link_profile">▼</span>
-        </div>
-        <div class="section-body" id="body-link_profile">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">1</div><div class="lbl">Pages Crawled</div></div>
-                <div class="summary-item"><div class="val">45.0</div><div class="lbl">Avg Links/Page</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Orphan Pages</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Dead Ends</div></div>
+            <div class="deepdive-body" id="body-environment">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">Unknown</div><div class="lbl">Primary Platform</div></div>
+                    <div class="summary-tile"><div class="val">Unknown</div><div class="lbl">Runtime Type</div></div>
+                    <div class="summary-tile"><div class="val">LOW</div><div class="lbl">Confidence</div></div>
+                </div>
             </div>
-            
         </div>
-    </div>
 
-    <!-- Hreflang -->
-    <div class="section" id="section-hreflang">
-        <div class="section-header" onclick="toggleSection('hreflang')">
-            <h2>🌍 Hreflang / International SEO <span class="badge info">0 tags</span></h2>
-            <span class="chevron" id="chevron-hreflang">▼</span>
-        </div>
-        <div class="section-body" id="body-hreflang">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">none</div><div class="lbl">Method</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Tags Found</div></div>
+        <!-- Security Headers -->
+        <div class="deepdive-section" id="section-security">
+            <div class="deepdive-header" onclick="toggleDeepdive('security')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security Headers
+                    <span class="badge critical">40/100</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-security"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
             </div>
-            <p style="color:var(--text-muted);margin-top:12px">No hreflang tags found — this is expected for single-language sites.</p>
-        </div>
-    </div>
-
-    <!-- Duplicate Content -->
-    <div class="section" id="section-duplicate_content">
-        <div class="section-header" onclick="toggleSection('duplicate_content')">
-            <h2>📋 Content Uniqueness <span class="badge pass">0 dupes / 0 thin</span></h2>
-            <span class="chevron" id="chevron-duplicate_content">▼</span>
-        </div>
-        <div class="section-body" id="body-duplicate_content">
-            <div class="summary-row">
-                <div class="summary-item"><div class="val">?</div><div class="lbl">Pages Analyzed</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Near Duplicates</div></div>
-                <div class="summary-item"><div class="val">0</div><div class="lbl">Thin Pages</div></div>
+            <div class="deepdive-body" id="body-security">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">Yes</div><div class="lbl">HTTPS Enforced</div></div>
+                    <div class="summary-tile"><div class="val">1</div><div class="lbl">Headers Present</div></div>
+                    <div class="summary-tile"><div class="val">5</div><div class="lbl">Headers Missing</div></div>
+                </div>
+                <table class="deepdive-table">
+                    <thead><tr><th>Header Name</th><th>Status</th><th>Value / Diagnostics</th></tr></thead>
+                    <tbody>
+                        <tr><td class="mono">Content-Security-Policy (CSP)</td><td><span class="badge pass">Present</span></td><td class="mono">upgrade-insecure-requests</td></tr>
+                        <tr><td class="mono">HSTS (Strict-Transport-Security)</td><td><span class="badge critical">Missing</span></td><td>Forces browsers to use HTTPS. Prevents downgrade attacks.</td></tr><tr><td class="mono">X-Frame-Options</td><td><span class="badge critical">Missing</span></td><td>Prevents clickjacking by controlling iframe embedding.</td></tr><tr><td class="mono">X-Content-Type-Options</td><td><span class="badge critical">Missing</span></td><td>Prevents MIME-type sniffing.</td></tr><tr><td class="mono">Referrer-Policy</td><td><span class="badge critical">Missing</span></td><td>Controls how much referrer info is shared.</td></tr><tr><td class="mono">Permissions-Policy</td><td><span class="badge critical">Missing</span></td><td>Controls browser feature access (camera, microphone, geolocation).</td></tr>
+                    </tbody>
+                </table>
             </div>
-            
         </div>
+
+        <!-- Robots & Crawlers -->
+        <div class="deepdive-section" id="section-robots">
+            <div class="deepdive-header" onclick="toggleDeepdive('robots')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg> Robots & AI Crawler Directives
+                    <span class="badge pass">80/100</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-robots"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </div>
+            <div class="deepdive-body" id="body-robots">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">200</div><div class="lbl">robots.txt HTTP</div></div>
+                    <div class="summary-tile"><div class="val">2</div><div class="lbl">Sitemaps Declared</div></div>
+                </div>
+                <table class="deepdive-table">
+                    <thead><tr><th>AI Crawler / Agent</th><th>Policy Status</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td class="mono">GPTBot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">ChatGPT-User</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">ClaudeBot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">PerplexityBot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">Google-Extended</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">Applebot-Extended</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">Bytespider</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">CCBot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">anthropic-ai</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">FacebookBot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr><tr><td class="mono">Amazonbot</td><td><span class="badge warning">not managed (inherits * rules)</span></td><td>Robots Directive Inspection</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI Search / llms.txt -->
+        <div class="deepdive-section" id="section-llms_txt">
+            <div class="deepdive-header" onclick="toggleDeepdive('llms_txt')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg> Generative Engine Optimization (/llms.txt)
+                    <span class="badge critical">Missing</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-llms_txt"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </div>
+            <div class="deepdive-body" id="body-llms_txt">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">No</div><div class="lbl">/llms.txt</div></div>
+                    <div class="summary-tile"><div class="val">No</div><div class="lbl">/llms-full.txt</div></div>
+                    <div class="summary-tile"><div class="val">0</div><div class="lbl">Citability Score</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Structured Data & Entity -->
+        <div class="deepdive-section" id="section-entity">
+            <div class="deepdive-header" onclick="toggleDeepdive('entity')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="22" x2="22" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> Entity Authority & Schema.org
+                    <span class="badge critical">20/100</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-entity"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </div>
+            <div class="deepdive-body" id="body-entity">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">No</div><div class="lbl">Wikidata Entity</div></div>
+                    <div class="summary-tile"><div class="val">No</div><div class="lbl">Wikipedia Anchor</div></div>
+                    <div class="summary-tile"><div class="val">4</div><div class="lbl">sameAs References</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Broken Links -->
+        <div class="deepdive-section" id="section-broken_links">
+            <div class="deepdive-header" onclick="toggleDeepdive('broken_links')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18.84 12.25 1.72-1.71a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="m5.16 11.75-1.72 1.71a5 5 0 0 0 7.07 7.07l1.72-1.71"/><line x1="2" y1="2" x2="22" y2="22"/></svg> Link Health & 404 Status
+                    <span class="badge warning">1 Broken</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-broken_links"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </div>
+            <div class="deepdive-body" id="body-broken_links">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val" style="color:var(--emerald);">17</div><div class="lbl">Healthy Links</div></div>
+                    <div class="summary-tile"><div class="val" style="color:var(--coral);">1</div><div class="lbl">Broken Links</div></div>
+                    <div class="summary-tile"><div class="val">0</div><div class="lbl">Redirected</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Web Vitals -->
+        <div class="deepdive-section" id="section-pagespeed">
+            <div class="deepdive-header" onclick="toggleDeepdive('pagespeed')">
+                <div class="deepdive-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg> Performance & Core Web Vitals
+                    <span class="badge warning">0/100</span>
+                </div>
+                <span class="deepdive-chevron" id="chevron-pagespeed"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+            </div>
+            <div class="deepdive-body" id="body-pagespeed">
+                <div class="summary-strip">
+                    <div class="summary-tile"><div class="val">—</div><div class="lbl">LCP</div></div>
+                    <div class="summary-tile"><div class="val">—</div><div class="lbl">INP / TBT</div></div>
+                    <div class="summary-tile"><div class="val">—</div><div class="lbl">CLS</div></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Recommendations Summary -->
-    <div class="section" id="section-recs">
-        <div class="section-header" onclick="toggleSection('recs')">
-            <h2>💡 All Recommendations</h2>
-            <span class="chevron" id="chevron-recs">▼</span>
-        </div>
-        <div class="section-body" id="body-recs">
-            <h3 style="font-size:0.95rem;margin:16px 0 8px;">🛠️ Environment-Specific Fixes</h3><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>Missing H1 on page</strong>: Ensure each page has exactly one descriptive H1 aligned to intent.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>Meta description is missing or out of range</strong>: Update page templates to set complete title/meta/OG/Twitter tags.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>Title tag needs optimization</strong>: Update page templates to set complete title/meta/OG/Twitter tags.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>5 security headers missing</strong>: Set missing security headers at web server or CDN layer.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>No llms.txt found</strong>: Add `/llms.txt` at site root with concise site description and key URLs.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>1 broken links detected</strong>: Repair or remove broken internal links and refresh outdated navigation targets.</div><div class="issue-item info"><span class="issue-badge">FIX</span> <strong>Performance measurement incomplete</strong>: Set `PAGESPEED_API_KEY` in your environment or `.env` file (see `.env.example`), then rerun. The CLI also accepts `--api-key`. Prioritize LCP/INP/CLS fixes from that output.</div><h3 style="font-size:0.95rem;margin:16px 0 8px;">🔒 Security</h3><div class="issue-item info"><span class="issue-badge">FIX</span> HSTS (Strict-Transport-Security): Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains</div><div class="issue-item info"><span class="issue-badge">FIX</span> X-Frame-Options: Add header: X-Frame-Options: SAMEORIGIN</div><div class="issue-item info"><span class="issue-badge">FIX</span> X-Content-Type-Options: Add header: X-Content-Type-Options: nosniff</div><div class="issue-item info"><span class="issue-badge">FIX</span> Referrer-Policy: Add header: Referrer-Policy: strict-origin-when-cross-origin</div><div class="issue-item info"><span class="issue-badge">FIX</span> Permissions-Policy: Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()</div><h3 style="font-size:0.95rem;margin:16px 0 8px;">🕸️ Internal Links</h3><div class="issue-item info"><span class="issue-badge">FIX</span> Add internal links pointing to orphan pages from related content</div>
-        </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        Generated by Antigravity SEO Telemetry · Standalone Offline Diagnostic Deliverable
     </div>
-
-</div>
-
-<div class="footer">
-    <p>Generated by SEO Skill · 2026-09-13 16:58</p>
-</div>
+</footer>
 
 <script>
-function toggleSection(id) {
+// State
+let currentSeverity = 'all';
+
+function switchView(view) {
+    const execView = document.getElementById('view-executive');
+    const diagView = document.getElementById('view-diagnostic');
+    const tabExec = document.getElementById('tab-executive');
+    const tabDiag = document.getElementById('tab-diagnostic');
+
+    if (view === 'executive') {
+        execView.style.display = 'block';
+        diagView.style.display = 'none';
+        tabExec.classList.add('active');
+        tabDiag.classList.remove('active');
+        tabExec.setAttribute('aria-selected', 'true');
+        tabDiag.setAttribute('aria-selected', 'false');
+    } else {
+        execView.style.display = 'none';
+        diagView.style.display = 'block';
+        tabExec.classList.remove('active');
+        tabDiag.classList.add('active');
+        tabExec.setAttribute('aria-selected', 'false');
+        tabDiag.setAttribute('aria-selected', 'true');
+    }
+}
+
+function toggleTheme() {
+    const html = document.documentElement;
+    const icon = document.getElementById('theme-icon');
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        html.setAttribute('data-theme', 'light');
+        icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+    }
+}
+
+function toggleDrawer(id) {
+    const drawer = document.getElementById('drawer-' + id);
+    const btn = document.getElementById('drawer-btn-' + id);
+    if (!drawer) return;
+    const isOpen = drawer.classList.contains('open');
+    if (isOpen) {
+        drawer.classList.remove('open');
+        btn.innerHTML = 'View Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+    } else {
+        drawer.classList.add('open');
+        btn.innerHTML = 'Close Fix <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+    }
+}
+
+function toggleDeepdive(id) {
     const body = document.getElementById('body-' + id);
     const chevron = document.getElementById('chevron-' + id);
+    if (!body) return;
     body.classList.toggle('open');
     chevron.classList.toggle('open');
 }
-function scrollToSection(id) {
-    const el = document.getElementById('section-' + id);
-    if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Auto-open
-        const body = document.getElementById('body-' + id);
-        const chevron = document.getElementById('chevron-' + id);
-        if (!body.classList.contains('open')) {
+
+function jumpToCategory(catKey) {
+    switchView('diagnostic');
+    const sec = document.getElementById('section-' + catKey);
+    if (sec) {
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const body = document.getElementById('body-' + catKey);
+        const chevron = document.getElementById('chevron-' + catKey);
+        if (body && !body.classList.contains('open')) {
             body.classList.add('open');
             chevron.classList.add('open');
         }
     }
 }
-function toggleTheme() {
-    const html = document.documentElement;
-    const btn = document.querySelector('.theme-toggle');
-    if (html.getAttribute('data-theme') === 'light') {
-        html.removeAttribute('data-theme');
-        btn.textContent = '🌙';
-    } else {
-        html.setAttribute('data-theme', 'light');
-        btn.textContent = '☀️';
-    }
-}
-// Auto-open issues section
-document.getElementById('body-issues').classList.add('open');
-document.getElementById('chevron-issues').classList.add('open');
-</script>
 
+function setSeverityFilter(sev) {
+    currentSeverity = sev;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+        if (b.getAttribute('data-filter') === sev) b.classList.add('active');
+        else b.classList.remove('active');
+    });
+    filterIssues();
+}
+
+function filterIssues() {
+    const query = (document.getElementById('triage-search').value || '').toLowerCase();
+    const rows = document.querySelectorAll('.triage-row');
+    rows.forEach(r => {
+        const rowSev = r.getAttribute('data-severity');
+        const text = r.textContent.toLowerCase();
+        const matchesSev = (currentSeverity === 'all' || rowSev === currentSeverity);
+        const matchesQuery = !query || text.includes(query);
+        const nextDrawer = r.nextElementSibling;
+        if (matchesSev && matchesQuery) {
+            r.style.display = 'table-row';
+        } else {
+            r.style.display = 'none';
+            if (nextDrawer && nextDrawer.classList.contains('drawer-row')) {
+                nextDrawer.classList.remove('open');
+            }
+        }
+    });
+}
+
+function copySnippet(elementId, btn) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        const oldText = btn.innerHTML;
+        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        setTimeout(() => {
+            btn.innerHTML = oldText;
+        }, 2000);
+    }).catch(() => {
+        btn.innerText = 'Copy Failed';
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash === '#diagnostic') {
+        switchView('diagnostic');
+    }
+});
+window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#diagnostic') {
+        switchView('diagnostic');
+    } else if (window.location.hash === '#executive') {
+        switchView('executive');
+    }
+});
+</script>
 </body>
 </html>
