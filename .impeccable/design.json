@@ -6,21 +6,21 @@
     "colorMeta": {
       "bg": {
         "role": "neutral",
-        "displayName": "Deep Obsidian",
-        "canonical": "#090d16",
-        "tonalRamp": ["#04060a", "#090d16", "#0f172a", "#152136", "#1e293b", "#334155", "#64748b", "#cbd5e1"]
+        "displayName": "Deep Midnight Onyx",
+        "canonical": "#0b0f17",
+        "tonalRamp": ["#05080c", "#0b0f17", "#111827", "#162032", "#1f2937", "#374151", "#6b7280", "#cbd5e1"]
       },
       "surface": {
         "role": "neutral",
-        "displayName": "Surface Slate",
-        "canonical": "#0f172a",
-        "tonalRamp": ["#080c16", "#0f172a", "#1a2333", "#23334d", "#334155", "#475569", "#64748b", "#f8fafc"]
+        "displayName": "Corporate Slate",
+        "canonical": "#111827",
+        "tonalRamp": ["#0b0f17", "#111827", "#1f2937", "#24334a", "#374151", "#4b5563", "#9ca3af", "#f8fafc"]
       },
       "card": {
         "role": "neutral",
-        "displayName": "Card Navy",
-        "canonical": "#152136",
-        "tonalRamp": ["#0b1120", "#152136", "#1c2c48", "#23334d", "#2d4163", "#475569", "#94a3b8", "#f1f5f9"]
+        "displayName": "Executive Navy Slate",
+        "canonical": "#162032",
+        "tonalRamp": ["#0d1424", "#162032", "#1e2b42", "#24334a", "#334664", "#475569", "#94a3b8", "#f1f5f9"]
       },
       "white": {
         "role": "neutral",
@@ -30,19 +30,19 @@
       },
       "accent": {
         "role": "primary",
-        "displayName": "Telemetry Indigo",
-        "canonical": "#818cf8",
-        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#e0e7ff"]
+        "displayName": "Executive Cobalt Blue",
+        "canonical": "#60a5fa",
+        "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"]
       },
       "accent-btn": {
         "role": "primary",
-        "displayName": "Action Indigo",
-        "canonical": "#4f46e5",
-        "tonalRamp": ["#1e1b4b", "#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#e0e7ff"]
+        "displayName": "Enterprise Action Blue",
+        "canonical": "#2563eb",
+        "tonalRamp": ["#172554", "#1e3a8a", "#1d4ed8", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd", "#dbeafe"]
       },
       "coral": {
         "role": "tertiary",
-        "displayName": "Critical Coral",
+        "displayName": "Critical Crimson",
         "canonical": "#f87171",
         "tonalRamp": ["#450a0a", "#7f1d1d", "#991b1b", "#b91c1c", "#dc2626", "#ef4444", "#f87171", "#fee2e2"]
       },
@@ -54,9 +54,15 @@
       },
       "emerald": {
         "role": "secondary",
-        "displayName": "Passing Emerald",
+        "displayName": "Passing Jade",
         "canonical": "#34d399",
         "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#d1fae5"]
+      },
+      "info": {
+        "role": "primary",
+        "displayName": "Corporate Sky Cyan",
+        "canonical": "#38bdf8",
+        "tonalRamp": ["#082f49", "#0c4a6e", "#0369a1", "#0284c7", "#0ea5e9", "#38bdf8", "#7dd3fc", "#e0f2fe"]
       }
     },
     "typographyMeta": {

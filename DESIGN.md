@@ -2,23 +2,24 @@
 name: Antigravity SEO Telemetry Workstation
 description: Authoritative dual-lens SEO diagnostic workstation and executive strategic risk dossier
 colors:
-  bg: "#090d16"
-  surface: "#0f172a"
-  card: "#152136"
-  card-hover: "#1c2c48"
-  card-border: "#23334d"
-  border-subtle: "#2d4163"
+  bg: "#0b0f17"
+  surface: "#111827"
+  card: "#162032"
+  card-hover: "#1e2b42"
+  card-border: "#24334a"
+  border-subtle: "#334664"
   text: "#f8fafc"
   text-muted: "#94a3b8"
   text-dim: "#94a3b8"
   white: "#ffffff"
-  accent: "#818cf8"
-  accent-btn: "#4f46e5"
+  accent: "#60a5fa"
+  accent-btn: "#2563eb"
   coral: "#f87171"
   amber: "#fbbf24"
   emerald: "#34d399"
-  code-bg: "#0b1120"
-  code-border: "#23334d"
+  info: "#38bdf8"
+  code-bg: "#0d1424"
+  code-border: "#24334a"
 typography:
   display:
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif'
@@ -164,28 +165,29 @@ The system is completely self-contained with zero CDN calls or third-party web f
 
 ## Colors
 
-The palette is engineered around high-contrast tonal layering in dark mode (#090d16) and clean, crisp elevation in light mode (#f8fafc), ensuring WCAG AA contrast compliance across all states.
+The palette is engineered around high-contrast institutional authority, featuring deep obsidian graphite and precision cobalt in dark mode (#0b0f17) and an executive platinum slate canvas with institutional navy blue in light mode (#f4f6f9 / #1d4ed8), ensuring WCAG AA contrast compliance across all states.
 
 ### Primary & Accent
-- **Telemetry Indigo** (`#818cf8` dark / `#4338ca` light): Primary brand accent, used for active interactive elements, section focus anchors, and total telemetry tallies.
-- **Action Indigo** (`#4f46e5` dark / `#4338ca` light): Solid interactive state for active tabs, primary action buttons, and copy triggers.
+- **Executive Cobalt Blue** (`#60a5fa` dark / `#1d4ed8` light): Primary brand accent, used for active interactive elements, section focus anchors, and total telemetry tallies.
+- **Enterprise Action Blue** (`#2563eb` dark / `#1d4ed8` light): Solid interactive state for active tabs, primary action buttons, and copy triggers.
+- **Corporate Sky Cyan** (`#38bdf8` dark / `#0284c7` light): Informational status indicators and technical taxonomy tags.
 
 ### Status Channels
-- **Critical Coral** (`#f87171` dark / `#b91c1c` light): Severe risk indicators, failing score gauges, and high-priority triage alerts. Tinted with 15% alpha background (`rgba(239, 68, 68, 0.15)`) for badges.
-- **Warning Amber** (`#fbbf24` dark / `#92400e` light): Moderate risk indicators, non-blocking configuration gaps, and cautionary telemetry tracks. Tinted with 15% alpha background (`rgba(245, 158, 11, 0.15)`).
-- **Passing Emerald** (`#34d399` dark / `#065f46` light): Healthy signals, validated compliance indicators, and projection benchmarks. Tinted with 15% alpha background (`rgba(16, 185, 129, 0.15)`).
+- **Critical Crimson** (`#f87171` dark / `#b91c1c` light): Severe risk indicators, failing score gauges, and high-priority triage alerts. Tinted with low-saturation alpha background (`rgba(239, 68, 68, 0.15)` in dark, `rgba(220, 38, 38, 0.08)` in light).
+- **Warning Amber** (`#fbbf24` dark / `#b45309` light): Moderate risk indicators, non-blocking configuration gaps, and cautionary telemetry tracks. Tinted with low-saturation alpha background (`rgba(245, 158, 11, 0.15)` in dark, `rgba(217, 119, 6, 0.08)` in light).
+- **Passing Jade** (`#34d399` dark / `#047857` light): Healthy signals, validated compliance indicators, and projection benchmarks. Tinted with low-saturation alpha background (`rgba(16, 185, 129, 0.15)` in dark, `rgba(5, 150, 105, 0.08)` in light).
 
 ### Neutral & Ground
-- **Deep Obsidian** (`#090d16`): The foundational canvas background in dark mode, providing deep contrast for luminous telemetry data.
-- **Surface Slate** (`#0f172a`): Secondary container plane for major sections, navbar backdrop, and hero cards.
-- **Card Navy** (`#152136`): Elevated tertiary plane for KPI metrics, threat bodies, code terminals, and drawer panels.
-- **Card Border Slate** (`#23334d`): Structural 1px boundary dividing telemetry channels without heavy visual lines.
-- **Subtle Slate** (`#2d4163`): Active and hover state borders for cards and interactive rows.
-- **Text Crisp White** (`#f8fafc`): High-contrast primary reading text in dark mode.
-- **Text Slate Muted** (`#94a3b8`): Secondary metadata, category labels, timestamps, and descriptive subtitles.
+- **Deep Midnight Onyx** (`#0b0f17` dark / `#f4f6f9` light): The foundational canvas background, providing deep contrast without purple tint in dark mode, and a soft executive platinum in light mode.
+- **Corporate Slate Container** (`#111827` dark / `#ffffff` light): Secondary container plane for major sections, navbar backdrop, and hero cards.
+- **Executive Navy Slate Card** (`#162032` dark / `#ffffff` light): Elevated tertiary plane for KPI metrics, threat bodies, code terminals, and drawer panels.
+- **Precision Border Slate** (`#24334a` dark / `#e2e8f0` light): Structural 1px boundary dividing telemetry channels with crisp definition.
+- **Subtle Focus Slate** (`#334664` dark / `#cbd5e1` light): Active and hover state borders for cards and interactive rows.
+- **Text Crisp White** (`#f8fafc` dark / `#0f172a` light): High-contrast primary reading text (WCAG AAA ≥ 13.8:1).
+- **Text Slate Muted** (`#94a3b8` dark / `#475569` light): Secondary metadata, category labels, timestamps, and descriptive subtitles (WCAG AA ≥ 5.2:1).
 
 ### Named Rules
-**The Semantic Status Invariant.** Coral, Amber, and Emerald are strictly reserved for operational diagnostic states (Critical, Warning, Pass). No decorative element, chart element, or layout frame may use these hues unless reporting state.
+**The Semantic Status Invariant.** Crimson, Amber, and Jade are strictly reserved for operational diagnostic states (Critical, Warning, Pass). No decorative element, chart element, or layout frame may use these hues unless reporting state.
 
 **The Ambient Contrast Rule.** Background and card surfaces must never rely on blur filters alone; a crisp 1px border (`var(--card-border)`) is mandatory to preserve spatial boundaries under varied monitor calibrations.
 

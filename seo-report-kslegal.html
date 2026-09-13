@@ -6,17 +6,18 @@
 <title>SEO Telemetry & Executive Audit — www.kslegal.co.in</title>
 <style>
 :root {
-    --bg: #090d16;
-    --surface: #0f172a;
-    --card: #152136;
-    --card-hover: #1c2c48;
-    --card-border: #23334d;
-    --border-subtle: #2d4163;
+    --bg: #0b0f17;
+    --surface: #111827;
+    --card: #162032;
+    --card-hover: #1e2b42;
+    --card-border: #24334a;
+    --border-subtle: #334664;
     --text: #f8fafc;
     --text-muted: #94a3b8;
     --text-dim: #94a3b8;
-    --accent: #818cf8;
-    --accent-btn: #4f46e5;
+    --white: #ffffff;
+    --accent: #60a5fa;
+    --accent-btn: #2563eb;
     --coral: #f87171;
     --coral-bg: rgba(239, 68, 68, 0.15);
     --coral-border: rgba(239, 68, 68, 0.35);
@@ -26,8 +27,11 @@
     --emerald: #34d399;
     --emerald-bg: rgba(16, 185, 129, 0.15);
     --emerald-border: rgba(16, 185, 129, 0.35);
-    --code-bg: #0b1120;
-    --code-border: #23334d;
+    --info: #38bdf8;
+    --info-bg: rgba(56, 189, 248, 0.12);
+    --info-border: rgba(56, 189, 248, 0.3);
+    --code-bg: #0d1424;
+    --code-border: #24334a;
     --radius: 12px;
     --radius-sm: 6px;
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
@@ -35,28 +39,32 @@
 }
 
 [data-theme="light"] {
-    --bg: #f8fafc;
+    --bg: #f4f6f9;
     --surface: #ffffff;
     --card: #ffffff;
-    --card-hover: #f1f5f9;
-    --card-border: #cbd5e1;
-    --border-subtle: #94a3b8;
+    --card-hover: #f8fafc;
+    --card-border: #e2e8f0;
+    --border-subtle: #cbd5e1;
     --text: #0f172a;
-    --text-muted: #334155;
+    --text-muted: #475569;
     --text-dim: #475569;
-    --accent: #4338ca;
-    --accent-btn: #4338ca;
+    --white: #ffffff;
+    --accent: #1d4ed8;
+    --accent-btn: #1d4ed8;
     --coral: #b91c1c;
-    --coral-bg: rgba(239, 68, 68, 0.1);
-    --coral-border: rgba(185, 28, 28, 0.3);
-    --amber: #92400e;
-    --amber-bg: rgba(245, 158, 11, 0.1);
-    --amber-border: rgba(146, 64, 14, 0.3);
-    --emerald: #065f46;
-    --emerald-bg: rgba(16, 185, 129, 0.1);
-    --emerald-border: rgba(6, 95, 70, 0.3);
-    --code-bg: #f1f5f9;
-    --code-border: #cbd5e1;
+    --coral-bg: rgba(220, 38, 38, 0.08);
+    --coral-border: rgba(185, 28, 28, 0.25);
+    --amber: #b45309;
+    --amber-bg: rgba(217, 119, 6, 0.08);
+    --amber-border: rgba(180, 83, 9, 0.25);
+    --emerald: #047857;
+    --emerald-bg: rgba(5, 150, 105, 0.08);
+    --emerald-border: rgba(4, 120, 87, 0.25);
+    --info: #0284c7;
+    --info-bg: rgba(2, 132, 199, 0.08);
+    --info-border: rgba(2, 132, 199, 0.25);
+    --code-bg: #f8fafc;
+    --code-border: #e2e8f0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -152,6 +160,9 @@ body {
     border: 1px solid var(--card-border);
     border-radius: 30px;
     padding: 3px;
+}
+[data-theme="light"] .view-switcher {
+    background: #e2e8f0;
 }
 .view-tab {
     background: transparent;
@@ -254,7 +265,7 @@ body {
     font-size: 3.2rem;
     font-weight: 800;
     line-height: 1;
-    color: #ef4444;
+    color: var(--coral);
 }
 .gauge-label {
     font-size: 0.9rem;
@@ -341,7 +352,7 @@ body {
 .badge.critical { background: var(--coral-bg); color: var(--coral); border: 1px solid var(--coral-border); }
 .badge.warning { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
 .badge.pass { background: var(--emerald-bg); color: var(--emerald); border: 1px solid var(--emerald-border); }
-.badge.info { background: rgba(99, 102, 241, 0.12); color: var(--accent); border: 1px solid rgba(99, 102, 241, 0.25); }
+.badge.info { background: var(--info-bg); color: var(--info); border: 1px solid var(--info-border); }
 
 /* Strategic Risk Dossier */
 .section-title {
@@ -864,7 +875,7 @@ body {
                 <div class="score-gauge">
                     <svg viewBox="0 0 200 200">
                         <circle cx="100" cy="100" r="85" fill="none" stroke="var(--card-border)" stroke-width="12"/>
-                        <circle cx="100" cy="100" r="85" fill="none" stroke="#ef4444" stroke-width="12"
+                        <circle cx="100" cy="100" r="85" fill="none" stroke="var(--coral)" stroke-width="12"
                             stroke-dasharray="245.7 534.07" stroke-linecap="round"
                             transform="rotate(-90 100 100)"/>
                     </svg>
@@ -1732,17 +1743,23 @@ function switchView(view) {
     }
 }
 
-function toggleTheme() {
+function applyTheme(theme) {
     const html = document.documentElement;
     const icon = document.getElementById('theme-icon');
-    const isDark = html.getAttribute('data-theme') === 'dark';
-    if (isDark) {
+    if (theme === 'light') {
         html.setAttribute('data-theme', 'light');
-        icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        if (icon) icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        try { localStorage.setItem('seo_report_theme', 'light'); } catch (e) {}
     } else {
         html.setAttribute('data-theme', 'dark');
-        icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+        if (icon) icon.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+        try { localStorage.setItem('seo_report_theme', 'dark'); } catch (e) {}
     }
+}
+
+function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    applyTheme(isDark ? 'light' : 'dark');
 }
 
 function toggleDrawer(id) {
@@ -1826,15 +1843,31 @@ function copySnippet(elementId, btn) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash === '#diagnostic') {
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('seo_report_theme'); } catch (e) {}
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('theme') === 'light' || window.location.hash.includes('light')) {
+        applyTheme('light');
+    } else if (params.get('theme') === 'dark' || window.location.hash.includes('dark')) {
+        applyTheme('dark');
+    } else if (savedTheme) {
+        applyTheme(savedTheme);
+    }
+
+    if (window.location.hash.includes('diagnostic')) {
         switchView('diagnostic');
     }
 });
 window.addEventListener('hashchange', () => {
-    if (window.location.hash === '#diagnostic') {
+    if (window.location.hash.includes('diagnostic')) {
         switchView('diagnostic');
-    } else if (window.location.hash === '#executive') {
+    } else if (window.location.hash.includes('executive')) {
         switchView('executive');
+    }
+    if (window.location.hash.includes('light')) {
+        applyTheme('light');
+    } else if (window.location.hash.includes('dark')) {
+        applyTheme('dark');
     }
 });
 </script>
