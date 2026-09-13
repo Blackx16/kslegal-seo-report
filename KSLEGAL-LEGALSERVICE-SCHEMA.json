@@ -1,0 +1,195 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "LegalService",
+        "Attorney"
+      ],
+      "@id": "https://www.kslegal.co.in/#legalservice",
+      "name": "KS Legal & Associates",
+      "alternateName": [
+        "KS Legal",
+        "K&S Legal"
+      ],
+      "url": "https://www.kslegal.co.in/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.kslegal.co.in/#logo",
+        "url": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+        "caption": "KS Legal & Associates Logo"
+      },
+      "image": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+      "description": "KS Legal & Associates is a premier full-service law firm in Mumbai, India, offering expertise in corporate and commercial law, litigation, arbitration and dispute resolution, insolvency and bankruptcy (IBC/NCLT), real estate, and banking and finance.",
+      "telephone": "+91-22-26031173",
+      "email": "sonam@kslegal.co.in",
+      "priceRange": "$$$$",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer, Cheque",
+      "founder": {
+        "@type": "Person",
+        "name": "Sonam Chandwani",
+        "jobTitle": "Managing Partner",
+        "url": "https://www.kslegal.co.in/about-ks-legal/"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "F-21, Manek Mahal, 90 Veer Nariman Road, Next to Ambassador Hotel, Nariman Point",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400020",
+        "addressCountry": "IN"
+      },
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Nariman Point Office (Headquarters)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "F-21, Manek Mahal, 90 Veer Nariman Road, Next to Ambassador Hotel, Nariman Point",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "postalCode": "400020",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 18.9322,
+            "longitude": 72.8264
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "BKC Office",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Plot C-59, 11th Floor, Platina, G Block, Bandra Kurla Complex Rd",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "postalCode": "400051",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 19.0664,
+            "longitude": 72.8687
+          }
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Mumbai"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Maharashtra"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:30",
+          "closes": "19:30"
+        }
+      ],
+      "sameAs": [
+        "https://in.linkedin.com/company/ks-legal-and-associates",
+        "https://twitter.com/legalks",
+        "https://www.facebook.com/pages/category/Lawyer---Law-Firm/KS-Legal-Associates-1454858528097412/",
+        "https://www.instagram.com/kslegalassociates/"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal Practice Areas",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Litigation & Dispute Resolution",
+              "url": "https://www.kslegal.co.in/litigation-dispute-resolution/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate & Commercial Laws",
+              "url": "https://www.kslegal.co.in/corporate-commercial-laws/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Insolvency & Bankruptcy (IBC / NCLT)",
+              "url": "https://www.kslegal.co.in/insolvency-bankruptcy/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Banking & Financial Laws",
+              "url": "https://www.kslegal.co.in/best-banking-and-financial-law-firm-mumbai/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mergers & Acquisitions",
+              "url": "https://www.kslegal.co.in/mergers-acquisitions/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Real Estate & Infrastructure Law",
+              "url": "https://www.kslegal.co.in/real-estate-infrastructure/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Labour & Employment Law",
+              "url": "https://www.kslegal.co.in/labour-employment/"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Intellectual Property Rights",
+              "url": "https://www.kslegal.co.in/intellectual-property-rights/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.kslegal.co.in/#website",
+      "url": "https://www.kslegal.co.in/",
+      "name": "KS Legal & Associates",
+      "publisher": {
+        "@id": "https://www.kslegal.co.in/#legalservice"
+      }
+    }
+  ]
+}

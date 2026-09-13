@@ -1,0 +1,712 @@
+{
+  "url": "https://www.kslegal.co.in/",
+  "scores": {
+    "overall": 46,
+    "categories": {
+      "security": 40,
+      "social": 100,
+      "robots": 80,
+      "article": 0,
+      "broken_links": 87,
+      "internal_links": 60,
+      "redirects": 100,
+      "llms_txt": 0,
+      "pagespeed": 0,
+      "onpage": 0,
+      "readability": 0,
+      "entity": 20,
+      "link_profile": 85,
+      "hreflang": 0,
+      "duplicate_content": 0
+    },
+    "weights": {
+      "security": 8,
+      "social": 5,
+      "robots": 8,
+      "broken_links": 10,
+      "internal_links": 8,
+      "redirects": 3,
+      "llms_txt": 5,
+      "pagespeed": 13,
+      "onpage": 10,
+      "readability": 8,
+      "entity": 5,
+      "link_profile": 7,
+      "hreflang": 5,
+      "duplicate_content": 5
+    },
+    "scoring_version": 1
+  },
+  "data": {
+    "url": "https://www.kslegal.co.in/",
+    "domain": "www.kslegal.co.in",
+    "timestamp": "2026-09-13T16:58:10.571875",
+    "sections": {
+      "robots": {
+        "url": "https://www.kslegal.co.in/robots.txt",
+        "status": 200,
+        "user_agents": {
+          "*": {
+            "allow": [],
+            "disallow": [
+              "/wp-content/uploads/wpo/wpo-plugins-tables-list.json"
+            ]
+          }
+        },
+        "sitemaps": [
+          "https://www.kslegal.co.in/sitemap.xml",
+          "https://www.kslegal.co.in/sitemap.rss"
+        ],
+        "crawl_delays": {},
+        "ai_crawler_status": {
+          "GPTBot": "not managed (inherits * rules)",
+          "ChatGPT-User": "not managed (inherits * rules)",
+          "ClaudeBot": "not managed (inherits * rules)",
+          "PerplexityBot": "not managed (inherits * rules)",
+          "Google-Extended": "not managed (inherits * rules)",
+          "Applebot-Extended": "not managed (inherits * rules)",
+          "Bytespider": "not managed (inherits * rules)",
+          "CCBot": "not managed (inherits * rules)",
+          "anthropic-ai": "not managed (inherits * rules)",
+          "FacebookBot": "not managed (inherits * rules)",
+          "Amazonbot": "not managed (inherits * rules)"
+        },
+        "issues": [
+          "\u26a0\ufe0f 11 AI crawlers not explicitly managed: GPTBot, ChatGPT-User, ClaudeBot, PerplexityBot, Google-Extended"
+        ],
+        "error": null
+      },
+      "security": {
+        "url": "https://www.kslegal.co.in/",
+        "score": 40,
+        "https": true,
+        "headers_present": {
+          "Content-Security-Policy (CSP)": "upgrade-insecure-requests"
+        },
+        "headers_missing": {
+          "HSTS (Strict-Transport-Security)": "Forces browsers to use HTTPS. Prevents downgrade attacks.",
+          "X-Frame-Options": "Prevents clickjacking by controlling iframe embedding.",
+          "X-Content-Type-Options": "Prevents MIME-type sniffing.",
+          "Referrer-Policy": "Controls how much referrer info is shared.",
+          "Permissions-Policy": "Controls browser feature access (camera, microphone, geolocation)."
+        },
+        "header_values": {
+          "content-security-policy": "upgrade-insecure-requests"
+        },
+        "issues": [
+          "\ud83d\udd34 5 security headers missing \u2014 poor security posture"
+        ],
+        "recommendations": [
+          "HSTS (Strict-Transport-Security): Add header: Strict-Transport-Security: max-age=31536000; includeSubDomains",
+          "X-Frame-Options: Add header: X-Frame-Options: SAMEORIGIN",
+          "X-Content-Type-Options: Add header: X-Content-Type-Options: nosniff",
+          "Referrer-Policy: Add header: Referrer-Policy: strict-origin-when-cross-origin",
+          "Permissions-Policy: Add header: Permissions-Policy: camera=(), microphone=(), geolocation=()"
+        ],
+        "error": null
+      },
+      "social": {
+        "url": "https://www.kslegal.co.in/",
+        "score": 100,
+        "og_tags": {
+          "og:locale": "en_US",
+          "og:site_name": "KS Legal and Associates - Corporate. Litigation. Advisory.",
+          "og:type": "website",
+          "og:title": "Law Firm in Mumbai \u2013 Legal Firm in Mumbai - KS Legal",
+          "og:description": "Law Firm in Mumbai. Looking for law firm or legal firm in Mumbai then visit KS Legal official website.",
+          "og:url": "https://www.kslegal.co.in/",
+          "og:image": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+          "og:image:secure_url": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+          "og:image:width": "200",
+          "og:image:height": "200"
+        },
+        "twitter_tags": {
+          "twitter:card": "summary",
+          "twitter:site": "@legalks",
+          "twitter:title": "Law Firm in Mumbai \u2013 Legal Firm in Mumbai - KS Legal",
+          "twitter:description": "Law Firm in Mumbai. Looking for law firm or legal firm in Mumbai then visit KS Legal official website.",
+          "twitter:creator": "@legalks",
+          "twitter:image": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg"
+        },
+        "og_present": [
+          "og:title",
+          "og:description",
+          "og:image",
+          "og:url",
+          "og:type",
+          "og:site_name",
+          "og:locale"
+        ],
+        "og_missing": [],
+        "twitter_present": [
+          "twitter:card",
+          "twitter:title",
+          "twitter:description",
+          "twitter:image",
+          "twitter:site",
+          "twitter:creator"
+        ],
+        "twitter_missing": [],
+        "issues": [],
+        "recommendations": [],
+        "preview": {
+          "title": "Law Firm in Mumbai \u2013 Legal Firm in Mumbai - KS Legal",
+          "description": "Law Firm in Mumbai. Looking for law firm or legal firm in Mumbai then visit KS Legal official website.",
+          "image": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+          "site_name": "KS Legal and Associates - Corporate. Litigation. Advisory."
+        },
+        "error": null
+      },
+      "redirects": {
+        "url": "https://www.kslegal.co.in/",
+        "final_url": "https://www.kslegal.co.in/",
+        "chain": [
+          {
+            "step": 1,
+            "url": "https://www.kslegal.co.in/",
+            "status": 200,
+            "time_ms": 5803,
+            "final": true
+          }
+        ],
+        "total_hops": 0,
+        "total_time_ms": 5803,
+        "has_loop": false,
+        "has_mixed_protocol": false,
+        "issues": [],
+        "error": null
+      },
+      "llms_txt": {
+        "url": "https://www.kslegal.co.in/llms.txt",
+        "full_url": "https://www.kslegal.co.in/llms-full.txt",
+        "exists": false,
+        "full_exists": false,
+        "status": 404,
+        "full_status": 404,
+        "parsed": {
+          "title": null,
+          "description": null,
+          "sections": [],
+          "links": []
+        },
+        "quality": {
+          "score": 0,
+          "issues": [
+            "\ud83d\udd34 No llms.txt found"
+          ],
+          "suggestions": [
+            "Create /llms.txt with site name, description, and key page links"
+          ]
+        },
+        "error": null
+      },
+      "broken_links": {
+        "page_url": "https://www.kslegal.co.in/",
+        "total_links": 22,
+        "checked": 22,
+        "broken": [
+          {
+            "url": "https://www.kslegal.co.in/",
+            "anchor_text": "Home",
+            "is_internal": true,
+            "status": null,
+            "error": "connection_failed",
+            "redirect": null,
+            "response_time_ms": null
+          }
+        ],
+        "redirected": [],
+        "timeout": [
+          {
+            "url": "https://www.kslegal.co.in/best-banking-and-financial-law-firm-mumbai/",
+            "anchor_text": "Read More",
+            "is_internal": true,
+            "status": null,
+            "error": "timeout",
+            "redirect": null,
+            "response_time_ms": null
+          },
+          {
+            "url": "https://www.kslegal.co.in/real-estate-infrastructure/",
+            "anchor_text": "Read More",
+            "is_internal": true,
+            "status": null,
+            "error": "timeout",
+            "redirect": null,
+            "response_time_ms": null
+          },
+          {
+            "url": "https://www.kslegal.co.in/services/",
+            "anchor_text": "full-service",
+            "is_internal": true,
+            "status": null,
+            "error": "timeout",
+            "redirect": null,
+            "response_time_ms": null
+          },
+          {
+            "url": "https://www.kslegal.co.in/wp-content/uploads/2021/03/businessman-consulting-legal-expert.png",
+            "anchor_text": "[no text]",
+            "is_internal": true,
+            "status": null,
+            "error": "timeout",
+            "redirect": null,
+            "response_time_ms": null
+          }
+        ],
+        "healthy": 17,
+        "summary": {
+          "total": 22,
+          "healthy": 17,
+          "broken": 1,
+          "redirected": 0,
+          "timeout": 4
+        },
+        "issues": [
+          "\ud83d\udd34 1 broken link(s) found",
+          "\u26a0\ufe0f 4 link(s) timed out"
+        ],
+        "error": null
+      },
+      "internal_links": {
+        "start_url": "https://www.kslegal.co.in/",
+        "domain": "www.kslegal.co.in",
+        "pages_crawled": 16,
+        "total_internal_links": 164,
+        "unique_pages_found": 40,
+        "max_depth_reached": 1,
+        "pages": {
+          "https://www.kslegal.co.in/services": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/intellectual-property-rights": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/litigation-dispute-resolution": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/mergers-acquisitions": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/corporate-commercial-laws": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/insolvency-bankruptcy": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/best-banking-and-financial-law-firm-mumbai": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/": {
+            "outgoing_links": 20,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/real-estate-infrastructure": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/supertech-insolvency-proceedings": {
+            "outgoing_links": 36,
+            "incoming_links": 5
+          },
+          "https://www.kslegal.co.in/linking-of-upi-credit-cards": {
+            "outgoing_links": 36,
+            "incoming_links": 5
+          },
+          "https://www.kslegal.co.in/blog": {
+            "outgoing_links": 0,
+            "incoming_links": 2
+          },
+          "https://www.kslegal.co.in/labour-employment": {
+            "outgoing_links": 0,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in/nationalization-of-banks-in-comparison-to-covid-effects": {
+            "outgoing_links": 37,
+            "incoming_links": 5
+          },
+          "https://www.kslegal.co.in/contact": {
+            "outgoing_links": 15,
+            "incoming_links": 6
+          },
+          "https://www.kslegal.co.in": {
+            "outgoing_links": 20,
+            "incoming_links": 6
+          }
+        },
+        "anchor_texts": {
+          "Read More": 16,
+          "Mumbai  |  Ahmedabad  |  Delhi  |  Bangalore  |  Chennai": 6,
+          "Home": 6,
+          "News": 6,
+          "Privacy Policy": 6,
+          "Litigation & Dispute Resolution Law Firm in Mumbai": 4,
+          "Corporate & Commercial Laws": 4,
+          "Mergers & Acquisitions": 4,
+          "Best Insolvency Law Firm in Mumbai": 4,
+          "Real Estate Law Firm in Mumbai": 4,
+          "Labour and  Employment Law Firm Mumbai": 4,
+          "Intellectual Property Rights Law Firm Mumbai": 4,
+          "About KS Legal": 4,
+          "Services": 4,
+          "Banking": 3,
+          "Compliance and Control in The Ecommerce Industry: Sufficient or Crippling?": 3,
+          "Crypto Currency is Money For the Information Age": 3,
+          "Telecom": 3,
+          "Hospitality": 3,
+          "Economy": 3
+        },
+        "link_distribution": {
+          "min": 15,
+          "max": 37,
+          "avg": 27.3
+        },
+        "orphan_candidates": [
+          {
+            "url": "https://www.kslegal.co.in/author/gopikrishna",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/unilateral-appointment-of-arbitrator",
+            "incoming_links": 1
+          }
+        ],
+        "nofollow_links": [],
+        "issues": [
+          "\u26a0\ufe0f 2 potential orphan page(s) (\u22641 internal link pointing to them)",
+          "\u26a0\ufe0f 15 link(s) have no anchor text"
+        ],
+        "recommendations": [
+          "Add internal links pointing to orphan pages from related content"
+        ],
+        "error": null
+      },
+      "pagespeed": {
+        "url": "https://www.kslegal.co.in/",
+        "strategy": "mobile",
+        "performance_score": null,
+        "metrics": {},
+        "opportunities": [],
+        "diagnostics": [],
+        "field_data_available": false,
+        "error": "Rate limited by Google API. Wait a few minutes or add an API key."
+      },
+      "entity": {
+        "url": "https://www.kslegal.co.in/",
+        "entity_name": "KS Legal and Associates",
+        "entities_in_schema": [
+          {
+            "type": "Organization",
+            "name": "KS Legal and Associates",
+            "url": "https://www.kslegal.co.in/",
+            "sameAs": [
+              "https://www.facebook.com/pages/category/Lawyer---Law-Firm/KS-Legal-Associates-1454858528097412/",
+              "https://twitter.com/legalks",
+              "https://www.instagram.com/kslegalassociates/?hl=en",
+              "https://in.linkedin.com/company/ks-legal-and-associates"
+            ],
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.kslegal.co.in/wp-content/uploads/2022/02/ksl-logo2.jpg",
+              "@id": "https://www.kslegal.co.in/#organizationLogo",
+              "width": 200,
+              "height": 200,
+              "caption": "Best law firm in Mumbai"
+            },
+            "description": "",
+            "identifier": ""
+          }
+        ],
+        "sameas_analysis": {
+          "found": {
+            "Facebook": {
+              "url": "https://www.facebook.com/pages/category/Lawyer---Law-Firm/KS-Legal-Associates-1454858528097412/",
+              "priority": "Low",
+              "kg_signal": "Weak"
+            },
+            "Twitter/X": {
+              "url": "https://twitter.com/legalks",
+              "priority": "High",
+              "kg_signal": "Strong"
+            },
+            "Instagram": {
+              "url": "https://www.instagram.com/kslegalassociates/?hl=en",
+              "priority": "Low",
+              "kg_signal": "Weak"
+            },
+            "LinkedIn": {
+              "url": "https://in.linkedin.com/company/ks-legal-and-associates",
+              "priority": "High",
+              "kg_signal": "Strong"
+            }
+          },
+          "missing": {
+            "Wikipedia": {
+              "domain": "wikipedia.org",
+              "priority": "Critical",
+              "kg_signal": "Primary"
+            },
+            "Wikidata": {
+              "domain": "wikidata.org",
+              "priority": "Critical",
+              "kg_signal": "Primary"
+            }
+          },
+          "issues": [],
+          "total_found": 4,
+          "total_missing_critical": 2
+        },
+        "wikidata": {
+          "found": false,
+          "qid": null,
+          "url": null
+        },
+        "wikipedia": {
+          "found": false,
+          "url": null
+        },
+        "google_kg": {
+          "checked": false,
+          "found": false,
+          "result": null
+        },
+        "nap_issues": [],
+        "issues": [
+          {
+            "severity": "Info",
+            "area": "Wikidata",
+            "finding": "No Wikidata entry found for 'KS Legal and Associates'.",
+            "fix": "If the entity meets Wikidata notability guidelines, create or improve an item with accurate third-party references. Do not create one solely for SEO."
+          },
+          {
+            "severity": "Info",
+            "area": "Wikipedia",
+            "finding": "No Wikipedia article found for 'KS Legal and Associates'.",
+            "fix": "Only pursue Wikipedia if the entity meets independent notability standards. Otherwise, strengthen official schema, sameAs profiles, citations, and About/Contact signals."
+          },
+          {
+            "severity": "Info",
+            "area": "sameAs",
+            "finding": "Missing sameAs link to Wikipedia (Primary KG signal).",
+            "fix": "Add the existing official 'wikipedia.org' URL to sameAs; do not create this profile solely for SEO."
+          },
+          {
+            "severity": "Info",
+            "area": "sameAs",
+            "finding": "Missing sameAs link to Wikidata (Primary KG signal).",
+            "fix": "Add the existing official 'wikidata.org' URL to sameAs; do not create this profile solely for SEO."
+          }
+        ],
+        "summary": {
+          "entities_found": 1,
+          "sameas_count": 4,
+          "sameas_missing_critical": 2,
+          "wikidata_found": false,
+          "wikipedia_found": false,
+          "google_kg_checked": false,
+          "google_kg_found": false,
+          "total_issues": 4
+        }
+      },
+      "link_profile": {
+        "pages_crawled": 1,
+        "total_internal_links": 45,
+        "total_external_links": 2,
+        "unique_internal_targets": 20,
+        "unique_external_domains": 1,
+        "avg_internal_links_per_page": 45.0,
+        "orphan_pages": {
+          "count": 0,
+          "urls": []
+        },
+        "dead_end_pages": {
+          "count": 0,
+          "urls": []
+        },
+        "top_linked_pages": [
+          {
+            "url": "https://www.kslegal.co.in/contact/",
+            "inbound_links": 8
+          },
+          {
+            "url": "https://www.kslegal.co.in/supertech-insolvency-proceedings/",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.kslegal.co.in/linking-of-upi-credit-cards/",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.kslegal.co.in/nationalization-of-banks-in-comparison-to-covid-effects/",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.kslegal.co.in/litigation-dispute-resolution/",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.kslegal.co.in/best-banking-and-financial-law-firm-mumbai/",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.kslegal.co.in/corporate-commercial-laws/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/mergers-acquisitions/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/insolvency-bankruptcy/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/real-estate-infrastructure/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/labour-employment/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/intellectual-property-rights/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/services/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in/about-ks-legal/",
+            "inbound_links": 2
+          },
+          {
+            "url": "https://www.kslegal.co.in",
+            "inbound_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/blog/",
+            "inbound_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/wp-content/uploads/2021/03/businessman-consulting-legal-expert.png",
+            "inbound_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/",
+            "inbound_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/news/",
+            "inbound_links": 1
+          },
+          {
+            "url": "https://www.kslegal.co.in/privacy-policy/",
+            "inbound_links": 1
+          }
+        ],
+        "top_external_domains": [
+          {
+            "domain": "en.wikipedia.org",
+            "links": 2
+          }
+        ],
+        "issues": [],
+        "site_url": "https://www.kslegal.co.in/"
+      },
+      "hreflang": {
+        "url": "https://www.kslegal.co.in/",
+        "implementation_method": "none",
+        "hreflang_tags_found": 0,
+        "tags": [],
+        "sitemap": {
+          "found": false,
+          "url": "https://www.kslegal.co.in/sitemap.xml",
+          "has_xhtml_namespace": false,
+          "language_variants_found": [],
+          "note": "No hreflang found in sitemap."
+        },
+        "checks": {
+          "hreflang_present": {
+            "passed": false,
+            "severity": "Info",
+            "finding": "No hreflang tags found (HTML, HTTP headers, or sitemap).",
+            "fix": "If this is a single-language site, hreflang is not needed. For multi-language sites, implement hreflang via HTML link tags or sitemap."
+          }
+        },
+        "language_code_issues": [],
+        "return_tag_checks": [],
+        "summary": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "passed": 0
+        }
+      },
+      "duplicate_content": {
+        "error": "Script timed out after 120s"
+      }
+    },
+    "environment": {
+      "primary": "Unknown",
+      "runtime": "Unknown",
+      "confidence": "low",
+      "signals": [
+        "No strong CMS/framework markers were found in HTML source."
+      ],
+      "alternatives": []
+    },
+    "environment_fixes": [
+      {
+        "severity": "critical",
+        "title": "Missing H1 on page",
+        "reason": "No primary content heading was detected, which weakens topical clarity.",
+        "fix": "Ensure each page has exactly one descriptive H1 aligned to intent."
+      },
+      {
+        "severity": "warning",
+        "title": "Meta description is missing or out of range",
+        "reason": "This can reduce SERP CTR and snippet quality.",
+        "fix": "Update page templates to set complete title/meta/OG/Twitter tags."
+      },
+      {
+        "severity": "warning",
+        "title": "Title tag needs optimization",
+        "reason": "Title length/content is likely suboptimal for rankings and click-through.",
+        "fix": "Update page templates to set complete title/meta/OG/Twitter tags."
+      },
+      {
+        "severity": "critical",
+        "title": "5 security headers missing",
+        "reason": "Missing headers reduce trust and can expose the site to browser/security risks.",
+        "fix": "Set missing security headers at web server or CDN layer."
+      },
+      {
+        "severity": "warning",
+        "title": "No llms.txt found",
+        "reason": "AI crawlers and assistants have no curated machine-readable guidance for key pages.",
+        "fix": "Add `/llms.txt` at site root with concise site description and key URLs."
+      },
+      {
+        "severity": "warning",
+        "title": "1 broken links detected",
+        "reason": "Broken internal links hurt crawl flow and user trust.",
+        "fix": "Repair or remove broken internal links and refresh outdated navigation targets."
+      },
+      {
+        "severity": "info",
+        "title": "Performance measurement incomplete",
+        "reason": "PageSpeed API returned an error, so CWV recommendations are less reliable.",
+        "fix": "Set `PAGESPEED_API_KEY` in your environment or `.env` file (see `.env.example`), then rerun. The CLI also accepts `--api-key`. Prioritize LCP/INP/CLS fixes from that output."
+      }
+    ]
+  }
+}
